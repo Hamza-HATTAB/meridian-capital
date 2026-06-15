@@ -1,0 +1,153 @@
+
+> meridian@0.1.0 lint
+> eslint
+
+
+/home/hamza/Projects/portfolio/real-estate/meridian/coverage/block-navigation.js
+  1:1  warning  Unused eslint-disable directive (no problems were reported)
+
+✖ 1 problem (0 errors, 1 warning)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+
+
+> meridian@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.8 /home/hamza/Projects/portfolio/real-estate/meridian
+
+ ✓ src/lib/metadata.test.ts (6 tests) 9ms
+ ✓ src/lib/email/resend.test.ts (3 tests) 22ms
+ ✓ src/lib/cn.test.ts (5 tests) 11ms
+ ✓ src/actions/contact.test.ts (5 tests) 34ms
+ ✓ src/hooks/use-scrolled.test.ts (5 tests) 29ms
+ ✓ src/components/primitives/SectionLabel.test.tsx (4 tests) 50ms
+ ✓ src/app/track-record/ChartsInner.test.tsx (1 test) 67ms
+ ✓ src/components/primitives/Container.test.tsx (5 tests) 115ms
+ ✓ src/components/primitives/Button.test.tsx (3 tests) 152ms
+ ✓ src/components/patterns/TransactionRow.test.tsx (1 test) 81ms
+ ✓ src/components/patterns/ContactForm.test.tsx (5 tests) 290ms
+ ✓ src/components/layout/Navigation.test.tsx (7 tests) 337ms
+ ✓ src/app/transactions/TransactionsClient.test.tsx (5 tests) 488ms
+
+ Test Files  13 passed (13)
+      Tests  55 passed (55)
+   Start at  13:09:28
+   Duration  1.76s (transform 859ms, setup 787ms, import 2.40s, tests 1.69s, environment 10.01s)
+
+
+Running 54 tests using 12 workers
+
+[1A[2K[1/54] [Desktop Chrome] › e2e/navigation.spec.ts:15:7 › Navigation and E2E Journeys › should navigate between pages correctly on desktop
+[1A[2K[2/54] [Desktop Chrome] › e2e/navigation.spec.ts:32:7 › Navigation and E2E Journeys › should open and use mobile menu correctly
+[1A[2K[3/54] [Desktop Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /about should not have any automatically detectable accessibility issues
+[1A[2K[4/54] [Desktop Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /track-record should not have any automatically detectable accessibility issues
+[1A[2K[5/54] [Desktop Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /advisory-services should not have any automatically detectable accessibility issues
+[1A[2K[6/54] [Desktop Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /contact should not have any automatically detectable accessibility issues
+[1A[2K[7/54] [Desktop Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /investment-intelligence should not have any automatically detectable accessibility issues
+[1A[2K[8/54] [Desktop Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page / should load without console errors
+[1A[2K[9/54] [Desktop Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /about should load without console errors
+[1A[2K[10/54] [Desktop Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /insights should not have any automatically detectable accessibility issues
+[1A[2K[11/54] [Desktop Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page / should not have any automatically detectable accessibility issues
+[1A[2K[12/54] [Desktop Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /transactions should not have any automatically detectable accessibility issues
+[1A[2K[13/54] [Desktop Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /contact should load without console errors
+[1A[2K[14/54] [Desktop Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /advisory-services should load without console errors
+[1A[2K[15/54] [Desktop Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /investment-intelligence should load without console errors
+[1A[2K[16/54] [Desktop Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /insights should load without console errors
+[1A[2K[17/54] [Desktop Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /track-record should load without console errors
+[1A[2K[18/54] [Desktop Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /transactions should load without console errors
+[1A[2K[19/54] [Tablet Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page / should not have any automatically detectable accessibility issues
+[1A[2K[20/54] [Tablet Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /contact should not have any automatically detectable accessibility issues
+[1A[2K[21/54] [Tablet Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /about should not have any automatically detectable accessibility issues
+[1A[2K[22/54] [Tablet Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /advisory-services should not have any automatically detectable accessibility issues
+[1A[2K[23/54] [Tablet Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /insights should not have any automatically detectable accessibility issues
+[1A[2K[24/54] [Tablet Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /track-record should not have any automatically detectable accessibility issues
+[1A[2K[25/54] [Tablet Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /investment-intelligence should not have any automatically detectable accessibility issues
+[1A[2K[26/54] [Tablet Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /transactions should not have any automatically detectable accessibility issues
+[1A[2K[27/54] [Tablet Chrome] › e2e/navigation.spec.ts:15:7 › Navigation and E2E Journeys › should navigate between pages correctly on desktop
+[1A[2K[28/54] [Tablet Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page / should load without console errors
+[1A[2K[29/54] [Tablet Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /advisory-services should load without console errors
+[1A[2K[30/54] [Tablet Chrome] › e2e/navigation.spec.ts:32:7 › Navigation and E2E Journeys › should open and use mobile menu correctly
+[1A[2K[31/54] [Tablet Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /about should load without console errors
+[1A[2K[32/54] [Tablet Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /investment-intelligence should load without console errors
+[1A[2K[33/54] [Tablet Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /contact should load without console errors
+[1A[2K[34/54] [Tablet Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /insights should load without console errors
+[1A[2K[35/54] [Tablet Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /track-record should load without console errors
+[1A[2K[36/54] [Tablet Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /transactions should load without console errors
+[1A[2K[37/54] [Mobile Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /about should not have any automatically detectable accessibility issues
+[1A[2K[38/54] [Mobile Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /contact should not have any automatically detectable accessibility issues
+[1A[2K[39/54] [Mobile Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page / should not have any automatically detectable accessibility issues
+[1A[2K[40/54] [Mobile Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /advisory-services should not have any automatically detectable accessibility issues
+[1A[2K[41/54] [Mobile Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /investment-intelligence should not have any automatically detectable accessibility issues
+[1A[2K[42/54] [Mobile Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /insights should not have any automatically detectable accessibility issues
+[1A[2K  1) [Tablet Chrome] › e2e/navigation.spec.ts:32:7 › Navigation and E2E Journeys › should open and use mobile menu correctly 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('#mobile-menu')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('#mobile-menu')[22m
+
+
+      43 |       if (btn) btn.click();
+      44 |     });
+    > 45 |     await expect(page.locator('#mobile-menu')).toBeVisible();
+         |                                                ^
+      46 |
+      47 |     // Click on About
+      48 |     const aboutLink = page.locator('#mobile-menu a', { hasText: 'About' });
+        at /home/hamza/Projects/portfolio/real-estate/meridian/e2e/navigation.spec.ts:45:48
+
+    Error Context: test-results/navigation-Navigation-and--6dca9-d-use-mobile-menu-correctly-Tablet-Chrome/error-context.md
+
+
+[1A[2K[43/54] [Mobile Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /track-record should not have any automatically detectable accessibility issues
+[1A[2K[44/54] [Mobile Chrome] › e2e/accessibility.spec.ts:17:9 › Accessibility Audit › page /transactions should not have any automatically detectable accessibility issues
+[1A[2K[45/54] [Mobile Chrome] › e2e/navigation.spec.ts:15:7 › Navigation and E2E Journeys › should navigate between pages correctly on desktop
+[1A[2K[46/54] [Mobile Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /contact should load without console errors
+[1A[2K[47/54] [Mobile Chrome] › e2e/navigation.spec.ts:32:7 › Navigation and E2E Journeys › should open and use mobile menu correctly
+[1A[2K[48/54] [Mobile Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page / should load without console errors
+[1A[2K[49/54] [Mobile Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /about should load without console errors
+[1A[2K[50/54] [Mobile Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /advisory-services should load without console errors
+[1A[2K[51/54] [Mobile Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /investment-intelligence should load without console errors
+[1A[2K[52/54] [Mobile Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /insights should load without console errors
+[1A[2K[53/54] [Mobile Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /track-record should load without console errors
+[1A[2K[54/54] [Mobile Chrome] › e2e/navigation.spec.ts:57:9 › Navigation and E2E Journeys › Page /transactions should load without console errors
+[1A[2K  2) [Mobile Chrome] › e2e/navigation.spec.ts:32:7 › Navigation and E2E Journeys › should open and use mobile menu correctly 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('#mobile-menu')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('#mobile-menu')[22m
+
+
+      43 |       if (btn) btn.click();
+      44 |     });
+    > 45 |     await expect(page.locator('#mobile-menu')).toBeVisible();
+         |                                                ^
+      46 |
+      47 |     // Click on About
+      48 |     const aboutLink = page.locator('#mobile-menu a', { hasText: 'About' });
+        at /home/hamza/Projects/portfolio/real-estate/meridian/e2e/navigation.spec.ts:45:48
+
+    Error Context: test-results/navigation-Navigation-and--6dca9-d-use-mobile-menu-correctly-Mobile-Chrome/error-context.md
+
+
+[1A[2K  2 failed
+    [Tablet Chrome] › e2e/navigation.spec.ts:32:7 › Navigation and E2E Journeys › should open and use mobile menu correctly 
+    [Mobile Chrome] › e2e/navigation.spec.ts:32:7 › Navigation and E2E Journeys › should open and use mobile menu correctly 
+  3 skipped
+  49 passed (48.6s)
+
+  Serving HTML report at http://localhost:43979. Press Ctrl+C to quit.

@@ -1,26 +1,230 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ═══════════════════════════════════════════════════════════════════════════
+   MERIDIAN CAPITAL ADVISORY — DESIGN SYSTEM
+   All design tokens live here. Never hardcode values in components.
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* ── BACKGROUNDS ── */
+    --color-bg-dark:          #0A0C14;
+    --color-bg-dark-surface:  #0F1117;
+    --color-bg-dark-raised:   #1A1A2A;
+    --color-bg-warm:          #F5F3EE;
+    --color-bg-white:         #FFFFFF;
+    --color-bg-warm-card:     #EDEBE3;
+
+    /* ── TEXT ── */
+    --color-text-primary:     #1A1A1A;
+    --color-text-secondary:   #5C5C5C;
+    --color-text-muted:       #606060;
+    --color-text-muted-alt:   #6C6C6C;
+    --color-text-on-dark:     #FFFFFF;
+    --color-text-on-dark-mid: rgba(255 255 255 / 0.62);
+    --color-text-on-dark-low: rgba(255 255 255 / 0.55);
+    --color-text-on-dark-dim: rgba(255 255 255 / 0.55);
+    --color-text-on-dark-sub: rgba(255 255 255 / 0.55);
+    --color-text-on-dark-min: rgba(255 255 255 / 0.55);
+
+    /* ── ACCENT ── */
+    --color-accent:           #786348;
+    --color-accent-mid:       #6B604E;
+    --color-accent-light:     #C0B89A;
+    --color-accent-border:    #E0DDD5;
+
+    /* ── STATE / CONVICTION ── */
+    --color-conviction-high:  #2D5A3D;
+    --color-role-text:        #4A6741;
+    --color-role-bg:          #EDF2EC;
+
+    /* ── BORDERS ── */
+    --color-border-dark:      rgba(255 255 255 / 0.08);
+    --color-border-dark-mid:  rgba(255 255 255 / 0.1);
+    --color-border-dark-low:  rgba(255 255 255 / 0.06);
+    --color-border-light:     rgba(0 0 0 / 0.1);
+    --color-border-light-mid: rgba(0 0 0 / 0.08);
+
+    /* ── TYPOGRAPHY ── */
+    --font-display: var(--font-source-serif), Georgia, serif;
+    --font-body:    var(--font-inter), system-ui, -apple-system, sans-serif;
+
+    /* ── SPACING (px values via CSS custom properties) ── */
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  20px;
+    --space-6:  24px;
+    --space-7:  28px;
+    --space-8:  32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-15: 60px;
+    --space-16: 64px;
+    --space-18: 72px;
+    --space-20: 80px;
+    --space-24: 96px;
+    --space-25: 100px;
+    --space-30: 120px;
+
+    /* ── GRID ── */
+    --grid-max:        1320px;
+    --grid-padding:    40px;
+    --grid-padding-sm: 20px;
+
+    /* ── MOTION ── */
+    --duration-fast:   300ms;
+    --duration-normal: 450ms;
+    --duration-slow:   700ms;
+    --ease-standard:   cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* ── LETTER SPACING (institutional) ── */
+    --tracking-label:  0.22em;
+    --tracking-nav:    0.12em;
+    --tracking-tag:    0.14em;
+    --tracking-badge:  0.08em;
+  }
+
+  /* ── RESET + BASE ── */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    /* RTL readiness: direction is set here and can be overridden */
+    direction: ltr;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-white);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── SKIP LINK ── */
+  .skip-link {
+    position: absolute;
+    inset-block-start: -100px;
+    inset-inline-start: 0;
+    z-index: 9999;
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    padding: 12px 24px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: inset-block-start var(--duration-normal);
+  }
+
+  .skip-link:focus {
+    inset-block-start: 0;
+  }
+
+  /* ── FOCUS RINGS ── */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* ── TYPOGRAPHY BASE ── */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  /* ── IMAGES ── */
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* ── LINKS ── */
+  a {
+    color: inherit;
+  }
+
+  /* ── SELECTION ── */
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-text-on-dark);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITY CLASSES — Institutional design patterns
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@layer utilities {
+  /* Container */
+  .container-grid {
+    max-width: var(--grid-max);
+    margin-inline: auto;
+    padding-inline: var(--grid-padding);
+  }
+
+  @media (max-width: 768px) {
+    .container-grid {
+      padding-inline: var(--grid-padding-sm);
+    }
+  }
+
+  /* Section Label */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    font-weight: 500;
+    display: block;
+    margin-block-end: 20px;
+  }
+
+  .section-label--light {
+    color: var(--color-accent-mid);
+  }
+
+  .section-label--dark {
+    color: var(--color-text-on-dark-sub);
+  }
+
+  /* Display font helper */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Section rule */
+  .section-rule {
+    height: 1px;
+    border: none;
+    margin-block-end: 64px;
+  }
+
+  .section-rule--dark {
+    background-color: var(--color-border-dark);
+  }
+
+  .section-rule--light {
+    background-color: var(--color-border-light);
+  }
+
+  /* Nav hidden on mobile */
+  @media (max-width: 900px) {
+    .nav-desktop {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 901px) {
+    .nav-mobile-trigger {
+      display: none !important;
+    }
+  }
 }
