@@ -3,6 +3,9 @@
 import { z } from 'zod';
 import { emailService } from '@/lib/email/resend';
 import { siteConfig } from '@/config/site';
+import { headers } from 'next/headers';
+import { Ratelimit } from '@upstash/ratelimit';
+import { Redis } from '@upstash/redis';
 
 // ── Validation Schema ──────────────────────────────────────────────────────
 // Runs server-side, independently of client-side validation.
@@ -28,11 +31,35 @@ export type ContactFormState = {
   fieldErrors?: Partial<Record<keyof z.infer<typeof contactSchema>, string[]>>;
 };
 
+// ── Rate Limiter ───────────────────────────────────────────────────────────
+// Allows 3 submissions per hour per IP address.
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(3, '1 h'),
+  analytics: true,
+});
+
 // ── Server Action ──────────────────────────────────────────────────────────
 export async function submitContactForm(
   _prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
+  // --- Rate Limiting ---
+  const requestHeaders = await headers();
+  const ip = requestHeaders.get('x-forwarded-for') ?? '127.0.0.1';
+  
+  try {
+    const { success: rateLimitSuccess } = await ratelimit.limit(`contact-form-${ip}`);
+    if (!rateLimitSuccess) {
+      return {
+        success: false,
+        error: 'Too many inquiries sent. Please try again later.',
+      };
+    }
+  } catch (error) {
+    console.error('Rate limit error:', error);
+  }
+
   const raw = {
     name: formData.get('name'),
     institution: formData.get('institution'),
