@@ -25,11 +25,11 @@ export const siteConfig = {
 
   /** Destination email for all contact and inquiry form submissions */
   contactEmail:
-    process.env.CONTACT_EMAIL ?? 'enquiries@meridian-advisory.com',
+    process.env.CONTACT_EMAIL_TO ?? 'enquiries@meridian-advisory.com',
 
   /** Sender email for outbound messages (must be verified in Resend) */
   fromEmail:
-    process.env.FROM_EMAIL ?? 'noreply@meridian-advisory.com',
+    process.env.CONTACT_EMAIL_FROM ?? 'noreply@meridian-advisory.com',
 
   /** Year the firm was established */
   foundedYear: 2006,
