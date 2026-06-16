@@ -6,6 +6,7 @@ import {
   type ContactFormState,
 } from '@/actions/contact';
 import { Button } from '@/components/primitives/Button';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 // ── Initial State ─────────────────────────────────────────────────────────
 const initialState: ContactFormState = { success: false };
@@ -250,6 +251,10 @@ export function ContactForm() {
           >
             {isPending ? 'Submitting…' : 'Request Discussion'}
           </Button>
+
+          <div style={{ marginTop: 24 }}>
+            <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!} />
+          </div>
         </div>
       </div>
 

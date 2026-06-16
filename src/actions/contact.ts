@@ -60,6 +60,32 @@ export async function submitContactForm(
     console.error('Rate limit error:', error);
   }
 
+  // --- Turnstile Verification ---
+  const token = formData.get('cf-turnstile-response');
+  if (!token) {
+    return {
+      success: false,
+      error: 'Please complete the security challenge.',
+    };
+  }
+
+  const turnstileVerify = await fetch(
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${token}`,
+    }
+  );
+  
+  const turnstileResponse = await turnstileVerify.json();
+  if (!turnstileResponse.success) {
+    return {
+      success: false,
+      error: 'Security challenge failed. Please try again.',
+    };
+  }
+
   const raw = {
     name: formData.get('name'),
     institution: formData.get('institution'),
