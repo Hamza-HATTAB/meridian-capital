@@ -159,17 +159,19 @@ export default function Navigation() {
               {/* Enquire CTA */}
               <Link
                 href="/contact"
+                className="nav-cta"
                 style={{
                   textDecoration: 'none',
                   fontSize: 11,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   fontWeight: 500,
-                  color: '#0F1117',
-                  background: '#FFFFFF',
-                  padding: '8px 20px',
+                  color: '#FFFFFF',
+                  background: 'transparent',
+                  border: '1px solid rgba(255, 255, 255, 0.4)',
+                  padding: '7px 19px',
                   display: 'inline-block',
-                  transition: 'background 0.2s, color 0.2s',
+                  transition: 'background 0.3s ease, color 0.3s ease, border-color 0.3s ease',
                 }}
               >
                 Enquire
@@ -276,8 +278,10 @@ export default function Navigation() {
           color: #FFFFFF !important;
         }
         @media (hover: hover) {
-          nav a[href="/contact"]:hover {
-            background: #E0DDD5 !important;
+          .nav-cta:hover {
+            background: #FFFFFF !important;
+            color: #0F1117 !important;
+            border-color: #FFFFFF !important;
           }
         }
       `}</style>
