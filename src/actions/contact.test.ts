@@ -16,16 +16,41 @@ vi.mock('@/config/site', () => ({
   },
 }));
 
-describe('submitContactForm server action', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
+vi.mock('next/headers', () => ({
+  headers: vi.fn().mockResolvedValue({
+    get: vi.fn().mockReturnValue('127.0.0.1'),
+  }),
+}));
 
+vi.mock('@upstash/ratelimit', () => {
+  class RatelimitMock {
+    limit = vi.fn().mockResolvedValue({ success: true });
+    static slidingWindow = vi.fn();
+  }
+  return { Ratelimit: RatelimitMock };
+});
+
+// Mock upstash redis fromEnv
+vi.mock('@upstash/redis', () => ({
+  Redis: {
+    fromEnv: vi.fn().mockReturnValue({}),
+  },
+}));
+
+describe('submitContactForm server action', () => {
   const createFormData = (data: Record<string, string>) => {
     const fd = new FormData();
     Object.entries(data).forEach(([key, value]) => fd.append(key, value));
+    fd.append('cf-turnstile-response', 'test-token');
     return fd;
   };
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+    global.fetch = vi.fn().mockResolvedValue({
+      json: vi.fn().mockResolvedValue({ success: true }),
+    });
+  });
 
   it('fails validation when required fields are missing', async () => {
     const formData = createFormData({});
