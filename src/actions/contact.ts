@@ -32,10 +32,10 @@ export type ContactFormState = {
 };
 
 // ── Rate Limiter ───────────────────────────────────────────────────────────
-// Allows 3 submissions per hour per IP address.
+// Allows 10 submissions per hour per IP address for testing.
 const ratelimit = new Ratelimit({
   redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(3, '1 h'),
+  limiter: Ratelimit.slidingWindow(10, '1 h'),
   analytics: true,
 });
 
