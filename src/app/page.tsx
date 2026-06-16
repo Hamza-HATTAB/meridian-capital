@@ -12,7 +12,7 @@ import { ProcessStepItem } from '@/components/patterns/ProcessStepItem';
 import { InsightCard } from '@/components/patterns/InsightCard';
 import { ContactForm } from '@/components/patterns/ContactForm';
 import { siteConfig } from '@/config/site';
-import { marketIntelligence, researchProcess, heroStats, sectorCoverage } from '@/content/track-record';
+import { marketIntelligence, researchProcess, sectorCoverage } from '@/content/track-record';
 import { investmentThemes } from '@/content/themes';
 import { advisoryServices } from '@/content/services';
 import { transactions } from '@/content/transactions';
@@ -65,22 +65,21 @@ export default function HomePage() {
       <section
         aria-label="Investment Committee Memorandum"
         style={{
-          background: '#FFFFFF', // Pure white paper aesthetic
+          background: '#FFFFFF',
           color: '#000000',
-          paddingBlockStart: 'clamp(60px, 8vw, 120px)',
-          paddingBlockEnd: 'clamp(60px, 8vw, 120px)',
+          paddingBlockStart: 'clamp(80px, 10vw, 160px)',
+          paddingBlockEnd: 'clamp(80px, 10vw, 160px)',
           position: 'relative',
         }}
       >
         <Container>
           <div
             style={{
-              maxWidth: 1040,
+              maxWidth: 960,
               marginInline: 'auto',
               background: '#FFFFFF',
-              border: '1px solid #000000',
-              padding: 'clamp(32px, 5vw, 64px)',
-              boxShadow: '12px 12px 0px 0px rgba(0,0,0,0.05)', // Subtle stack effect
+              border: '1px solid rgba(0,0,0,0.15)',
+              padding: 'clamp(40px, 6vw, 80px)',
             }}
           >
             {/* Memo Header */}
@@ -89,22 +88,22 @@ export default function HomePage() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'flex-end',
-                borderBottom: '3px solid #000000',
+                borderBottom: '1px solid #000000',
                 paddingBlockEnd: 16,
                 marginBlockEnd: 'clamp(40px, 6vw, 80px)',
                 fontFamily: 'monospace',
                 fontSize: 11,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
-                color: '#000000',
+                color: 'rgba(0,0,0,0.7)',
               }}
             >
               <div>
-                <strong style={{ fontSize: 13, display: 'block', marginBlockEnd: 4 }}>STRICTLY CONFIDENTIAL</strong>
+                <strong style={{ fontSize: 13, display: 'block', marginBlockEnd: 4, color: '#000000' }}>STRICTLY CONFIDENTIAL</strong>
                 INVESTMENT COMMITTEE BRIEFING
               </div>
               <div style={{ textAlign: 'right' }}>
-                <strong style={{ fontSize: 13, display: 'block', marginBlockEnd: 4 }}>REF: MERIDIAN-{new Date().getFullYear()}</strong>
+                <strong style={{ fontSize: 13, display: 'block', marginBlockEnd: 4, color: '#000000' }}>REF: MERIDIAN-{new Date().getFullYear()}</strong>
                 {siteConfig.name}
               </div>
             </div>
@@ -113,154 +112,116 @@ export default function HomePage() {
             <h1
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(42px, 6.5vw, 84px)',
+                fontSize: 'clamp(48px, 7vw, 92px)',
                 fontWeight: 400,
                 color: '#000000',
                 lineHeight: 1.05,
-                marginBlockEnd: 48,
+                marginBlockEnd: 'clamp(60px, 8vw, 100px)',
                 letterSpacing: '-0.02em',
-                maxWidth: 900,
+                maxWidth: 800,
               }}
             >
               We are paid for judgment, not transactions.
             </h1>
 
-            {/* Core Belief Statement */}
-            <div
-              style={{
-                display: 'flex',
-                gap: 24,
-                marginBlockEnd: 'clamp(40px, 6vw, 80px)',
-              }}
-            >
-              <div style={{ width: 4, background: '#000000', flexShrink: 0 }} />
-              <p
-                style={{
-                  fontSize: 'clamp(18px, 2vw, 22px)',
-                  lineHeight: 1.5,
-                  color: '#000000',
-                  maxWidth: 720,
-                  fontWeight: 400,
-                  fontFamily: 'var(--font-display)',
-                }}
-              >
-                In a market driven by transaction volume and developer optimism, Meridian protects institutional capital. The most valuable advice we offer an investment committee is often the recommendation to withdraw.
-              </p>
-            </div>
-
-            {/* CONFIDENTIAL PROOF ARTIFACT */}
+            {/* CONFIDENTIAL PROOF ARTIFACT (The Visual Anchor) */}
             <div
               style={{
                 border: '1px solid #000000',
                 background: '#FAFAFA',
-                padding: 'clamp(20px, 3vw, 32px)',
+                padding: 'clamp(32px, 5vw, 48px)',
                 fontFamily: 'monospace',
-                fontSize: 12,
                 color: '#000000',
-                marginBlockEnd: 'clamp(40px, 6vw, 80px)',
+                marginBlockEnd: 'clamp(60px, 8vw, 100px)',
               }}
             >
               <div 
                 style={{ 
                   fontWeight: 'bold', 
+                  fontSize: 13,
                   borderBottom: '1px solid rgba(0,0,0,0.15)', 
-                  paddingBottom: 12, 
-                  marginBottom: 20,
+                  paddingBottom: 16, 
+                  marginBottom: 32,
                   letterSpacing: '0.05em'
                 }}
               >
                 [ EXCERPT: IC BRIEFING #412 // DIFC ASSET REVIEW ]
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-16" style={{ fontSize: 14 }}>
                 <div>
-                  <div style={{ color: 'rgba(0,0,0,0.65)', marginBottom: 4 }}>MARKET CONSENSUS:</div>
-                  <div style={{ fontWeight: 'bold' }}>STRONG BUY (YIELD 5.8%)</div>
+                  <div style={{ color: 'rgba(0,0,0,0.75)', marginBottom: 6, fontSize: 12 }}>MARKET VIEW:</div>
+                  <div style={{ fontWeight: 'bold' }}>PROCEED (YIELD 5.8%)</div>
                 </div>
                 <div>
-                  <div style={{ color: 'rgba(0,0,0,0.65)', marginBottom: 4 }}>MERIDIAN ADVISORY:</div>
-                  <div style={{ fontWeight: 'bold', color: '#D90000' }}>WITHDRAW / DECLINE</div>
+                  <div style={{ color: 'rgba(0,0,0,0.75)', marginBottom: 6, fontSize: 12 }}>MERIDIAN RECOMMENDATION:</div>
+                  <div style={{ fontWeight: 'bold', color: '#D90000', display: 'inline-block', borderBottom: '2px solid #D90000' }}>WITHDRAW / DECLINE</div>
                 </div>
-                <div className="md:col-span-2 mt-2">
-                  <div style={{ color: 'rgba(0,0,0,0.65)', marginBottom: 4 }}>RATIONALE:</div>
-                  <div style={{ fontWeight: 'bold' }}>UNPRICED COVENANT RISK ON ANCHOR TENANT IDENTIFIED DURING INDEPENDENT DD.</div>
+                <div className="md:col-span-2">
+                  <div style={{ color: 'rgba(0,0,0,0.75)', marginBottom: 6, fontSize: 12 }}>REASON:</div>
+                  <div style={{ fontWeight: 'bold', lineHeight: 1.5 }}>UNPRICED COVENANT RISK ON ANCHOR TENANT IDENTIFIED DURING INDEPENDENT DD.</div>
                 </div>
-                <div className="md:col-span-2 mt-2 pt-4 border-t border-[rgba(0,0,0,0.15)]">
-                  <div style={{ color: 'rgba(0,0,0,0.65)', marginBottom: 4 }}>POST-DECISION OUTCOME:</div>
-                  <div style={{ fontWeight: 'bold' }}>TENANT DEFAULTED 18 MONTHS LATER. <span style={{ background: 'rgba(0,0,0,0.05)', padding: '2px 6px' }}>AED 120M CAPITAL PRESERVED.</span></div>
+                <div className="md:col-span-2 pt-6 border-t border-[rgba(0,0,0,0.15)]">
+                  <div style={{ color: 'rgba(0,0,0,0.75)', marginBottom: 6, fontSize: 12 }}>OUTCOME:</div>
+                  <div style={{ fontWeight: 'bold' }}>TENANT DEFAULTED 18 MONTHS LATER. <span style={{ background: 'rgba(0,0,0,0.08)', padding: '2px 8px' }}>AED 120M CAPITAL PRESERVED.</span></div>
                 </div>
+              </div>
+
+              {/* Curiosity Loop */}
+              <div style={{ marginBlockStart: 48, paddingTop: 24, borderTop: '1px dashed rgba(0,0,0,0.15)', fontSize: 11, color: 'rgba(0,0,0,0.75)', lineHeight: 1.6 }}>
+                <div>Additional supporting analysis withheld.</div>
+                <div>Supporting schedules, underwriting assumptions, and committee correspondence omitted.</div>
               </div>
             </div>
 
-            {/* Ledger Table */}
+            {/* Consequence Block */}
             <div
               style={{
-                borderTop: '1px solid #000000',
-                borderBottom: '1px solid #000000',
-                paddingBlock: '32px',
+                display: 'flex',
+                gap: 24,
+                marginBlockEnd: 48,
               }}
             >
-              <div
+              <div style={{ width: 3, background: '#000000', flexShrink: 0 }} />
+              <p
                 style={{
-                  fontFamily: 'monospace',
-                  fontSize: 11,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  marginBlockEnd: 32,
-                  fontWeight: 'bold',
+                  fontSize: 'clamp(17px, 2vw, 21px)',
+                  lineHeight: 1.6,
                   color: '#000000',
+                  maxWidth: 680,
+                  fontWeight: 400,
+                  fontFamily: 'var(--font-display)',
                 }}
               >
-                [ FIRM VITAL METRICS // DATA AS OF Q2 2026 ]
-              </div>
+                When advisory incentives are linked to transactions, independent judgment becomes difficult to preserve. Meridian was built on the belief that capital decisions should be defended by evidence rather than transaction volume.
+              </p>
+            </div>
+
+            {/* Institutional Evidence (Demoted Metrics) */}
+            <div
+              style={{
+                fontFamily: 'monospace',
+                fontSize: 11,
+                letterSpacing: '0.08em',
+                color: 'rgba(0,0,0,0.6)',
+                marginBlockEnd: 'clamp(40px, 6vw, 80px)',
+                paddingBlock: 24,
+                borderTop: '1px solid rgba(0,0,0,0.1)',
+                borderBottom: '1px solid rgba(0,0,0,0.1)',
+              }}
+            >
+              <span style={{ fontWeight: 'bold', color: '#000000', marginRight: 16 }}>[FIRM DATA]</span>
+              <span className="hidden sm:inline">18 YEARS <span style={{ marginInline: 12, opacity: 0.3 }}>|</span></span>
+              <span className="hidden sm:inline">AED 14.2B ADVISED <span style={{ marginInline: 12, opacity: 0.3 }}>|</span></span>
+              <span className="hidden sm:inline">23 INSTITUTIONAL CLIENTS <span style={{ marginInline: 12, opacity: 0.3 }}>|</span></span>
+              <span className="hidden sm:inline">3 MARKET CYCLES</span>
               
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
-                {heroStats.map((stat) => (
-                  <div 
-                    key={stat.label} 
-                    style={{ 
-                      paddingInlineStart: 16, 
-                      borderInlineStart: '1px solid rgba(0,0,0,0.15)' 
-                    }}
-                  >
-                    <div 
-                      style={{ 
-                        fontSize: 10, 
-                        fontFamily: 'monospace', 
-                        color: 'rgba(0,0,0,0.6)', 
-                        textTransform: 'uppercase', 
-                        letterSpacing: '0.05em',
-                        marginBlockEnd: 12 
-                      }}
-                    >
-                      {stat.label}
-                    </div>
-                    <div 
-                      style={{ 
-                        fontFamily: 'var(--font-display)', 
-                        fontSize: 'clamp(28px, 3vw, 38px)', 
-                        color: '#000000', 
-                        lineHeight: 1,
-                        letterSpacing: '-0.01em'
-                      }}
-                    >
-                      {stat.value}
-                    </div>
-                    {stat.unit && (
-                      <div 
-                        style={{ 
-                          fontSize: 10, 
-                          fontFamily: 'monospace', 
-                          color: '#000000', 
-                          textTransform: 'uppercase', 
-                          letterSpacing: '0.05em',
-                          marginBlockStart: 8 
-                        }}
-                      >
-                        {stat.unit}
-                      </div>
-                    )}
-                  </div>
-                ))}
+              {/* Mobile fallback for metrics */}
+              <div className="sm:hidden mt-4 flex flex-col gap-2">
+                <div>18 YEARS</div>
+                <div>AED 14.2B ADVISED</div>
+                <div>23 INSTITUTIONAL CLIENTS</div>
+                <div>3 MARKET CYCLES</div>
               </div>
             </div>
             
@@ -269,8 +230,7 @@ export default function HomePage() {
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: 32,
-                marginBlockStart: 32,
+                gap: 40,
                 fontFamily: 'monospace',
                 fontSize: 12,
                 textTransform: 'uppercase',
@@ -279,32 +239,28 @@ export default function HomePage() {
             >
               <a 
                 href="/contact" 
-                className="hover:bg-black/10 transition-colors"
+                className="hover:text-black transition-colors"
                 style={{ 
                   display: 'inline-flex', 
                   alignItems: 'center', 
                   gap: 8, 
                   color: '#000000', 
                   fontWeight: 'bold',
-                  background: 'rgba(0,0,0,0.05)',
-                  padding: '12px 16px',
-                  border: '1px solid #000000',
                 }}
               >
                 [ INITIATE DIALOGUE ] <ArrowUpRight size={14} />
               </a>
               <a 
-                href="/track-record" 
+                href="/about" 
                 className="hover:text-black transition-colors"
                 style={{ 
                   display: 'inline-flex', 
                   alignItems: 'center', 
                   gap: 8, 
-                  color: 'rgba(0,0,0,0.6)',
-                  padding: '12px 16px',
+                  color: 'rgba(0,0,0,0.75)',
                 }}
               >
-                [ EXAMINE EVIDENCE ] <ChevronRight size={14} />
+                [ REVIEW METHODOLOGY ] <ChevronRight size={14} />
               </a>
             </div>
           </div>
