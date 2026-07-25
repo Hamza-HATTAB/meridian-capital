@@ -21,7 +21,7 @@ export const siteConfig = {
     'MERIDIAN Capital Advisory | GCC Institutional Real Estate',
 
   /** Production URL — set via NEXT_PUBLIC_SITE_URL env var */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://meridian-advisory.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://realestate.northstaradvisory.pro',
 
   /** Destination email for all contact and inquiry form submissions */
   contactEmail:

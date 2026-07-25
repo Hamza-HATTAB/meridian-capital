@@ -32,12 +32,24 @@ export type ContactFormState = {
 };
 
 // ── Rate Limiter ───────────────────────────────────────────────────────────
-// Allows 10 submissions per hour per IP address for testing.
-const ratelimit = new Ratelimit({
-  redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(10, '1 h'),
-  analytics: true,
-});
+// Uses lazy initialisation so a dead/missing Upstash URL never crashes at
+// module load time. Any connectivity failure degrades gracefully (fail-open).
+function getRateLimiter(): Ratelimit | null {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  try {
+    return new Ratelimit({
+      redis: new Redis({ url, token }),
+      limiter: Ratelimit.slidingWindow(10, '1 h'),
+      analytics: false,
+    });
+  } catch (err) {
+    console.error('[contact] Failed to initialise Redis rate limiter:', err);
+    return null;
+  }
+}
+const rateLimiter = getRateLimiter();
 
 // ── Server Action ──────────────────────────────────────────────────────────
 export async function submitContactForm(
@@ -47,17 +59,20 @@ export async function submitContactForm(
   // --- Rate Limiting ---
   const requestHeaders = await headers();
   const ip = requestHeaders.get('x-forwarded-for') ?? '127.0.0.1';
-  
-  try {
-    const { success: rateLimitSuccess } = await ratelimit.limit(`contact-form-${ip}`);
-    if (!rateLimitSuccess) {
-      return {
-        success: false,
-        error: 'Too many inquiries sent. Please try again later.',
-      };
+
+  if (rateLimiter) {
+    try {
+      const { success: rateLimitSuccess } = await rateLimiter.limit(`contact-form-${ip}`);
+      if (!rateLimitSuccess) {
+        return {
+          success: false,
+          error: 'Too many inquiries sent. Please try again later.',
+        };
+      }
+    } catch (error) {
+      // Fail-open: log but do not block the submission
+      console.error('[contact] Rate limit check failed (fail-open):', error);
     }
-  } catch (error) {
-    console.error('Rate limit error:', error);
   }
 
   // --- Turnstile Verification ---
