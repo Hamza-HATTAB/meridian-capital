@@ -25,11 +25,11 @@ export const siteConfig = {
 
   /** Destination email for all contact and inquiry form submissions */
   contactEmail:
-    process.env.CONTACT_EMAIL_TO ?? 'hamza.agency.gcc@gmail.com',
+    process.env.CONTACT_EMAIL_TO ?? 'hamza@northstaradvisory.pro',
 
   /** Sender email for outbound messages (must be verified in Resend) */
   fromEmail:
-    process.env.CONTACT_EMAIL_FROM ?? 'onboarding@resend.dev',
+    process.env.CONTACT_EMAIL_FROM ?? 'noreply@northstaradvisory.pro',
 
   /** Year the firm was established */
   foundedYear: 2006,

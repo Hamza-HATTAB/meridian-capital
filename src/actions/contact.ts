@@ -162,7 +162,7 @@ export async function submitContactForm(
   if (!result.success) {
     return {
       success: false,
-      error: 'We were unable to submit your enquiry. Please try again or contact us directly.',
+      error: `SYSTEM ERROR (DEBUG): ${result.error || 'Unknown error'}`,
     };
   }
 
