@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://meridian-advisory.com
+Host: https://realestate.northstaradvisory.pro
 
 # Sitemaps
-Sitemap: https://meridian-advisory.com/sitemap.xml
+Sitemap: https://realestate.northstaradvisory.pro/sitemap.xml
