@@ -152,8 +152,8 @@ export async function submitContactForm(
   `;
 
   const result = await emailService.send({
-    from: siteConfig.fromEmail,
-    to: siteConfig.contactEmail,
+    from: 'Meridian Capital <noreply@northstaradvisory.pro>',
+    to: 'hamza@northstaradvisory.pro',
     subject: `Institutional Enquiry — ${name}, ${institution}`,
     html,
     replyTo: email,
@@ -162,7 +162,7 @@ export async function submitContactForm(
   if (!result.success) {
     return {
       success: false,
-      error: `SYSTEM ERROR (DEBUG): ${result.error || 'Unknown error'}`,
+      error: 'We were unable to submit your enquiry. Please try again or contact us directly.',
     };
   }
 
