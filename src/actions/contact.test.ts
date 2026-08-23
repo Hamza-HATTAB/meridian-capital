@@ -49,7 +49,7 @@ describe('submitContactForm server action', () => {
     name: 'John Doe',
     company: 'Test Corp',
     email: 'john@test.com',
-    country: 'UAE',
+    country: 'United Arab Emirates',
     enquiry: 'This is a long enough enquiry to pass the length check.',
   };
 

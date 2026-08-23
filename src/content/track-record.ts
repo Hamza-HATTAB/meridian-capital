@@ -168,9 +168,9 @@ export const marketIntelligence: MarketIntelItem[] = [
   },
   {
     tag: 'Operator Insight',
-    headline: 'Response Time in GCC Real Estate: The 5-Minute Rule and Why Most Operators Miss It',
+    headline: 'Response Time in GCC Real Estate: Managing Response Sensitivity in Practice',
     body:
-      'Research on lead response timing consistently shows that contact within 5 minutes of an enquiry submission increases conversion probability significantly. In GCC real estate, where enquiries arrive across multiple channels outside business hours, achieving this requires a defined process — not individual sales discipline.',
+      'Industry research commonly reports a relationship between faster response and stronger conversion; the diagnostic measures the operator’s actual response process rather than assuming a universal threshold. In GCC real estate, where enquiries arrive across multiple channels, achieving consistent response timing requires a defined workflow — not individual sales discipline.',
     date: 'July 2026',
   },
   {

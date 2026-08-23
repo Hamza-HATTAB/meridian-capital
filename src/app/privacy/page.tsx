@@ -49,7 +49,7 @@ export default function PrivacyPage() {
           >
             Privacy Policy
           </h1>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', fontFamily: 'monospace' }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', fontFamily: 'monospace' }}>
             Last updated: August 2026
           </p>
         </Container>
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
               'Who we are',
               <p>
                 North Star Advisory (<strong>northstaradvisory.pro</strong>) is a real-estate operating systems advisory practice. We are contactable at{' '}
-                <a href={`mailto:${siteConfig.contactEmail}`} style={{ color: 'var(--color-accent-mid)' }}>
+                <a href={`mailto:${siteConfig.contactEmail}`} style={{ color: 'var(--color-accent-mid)', textDecoration: 'underline' }}>
                   {siteConfig.contactEmail}
                 </a>
                 .
@@ -89,7 +89,7 @@ export default function PrivacyPage() {
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {[
                   'To assess whether a diagnostic engagement is relevant to your situation',
-                  'To respond to your enquiry within two business days',
+                  'To review your request and respond within two business days',
                   'To improve the content and structure of this website (analytics only)',
                   'We do not sell, rent, or share your personal information with third parties for marketing purposes',
                   'We do not use your information for investment decisions or financial analysis',
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
               'Your rights',
               <p>
                 You have the right to request access to, correction of, or deletion of any personal information you have provided to us. To exercise these rights, contact us at{' '}
-                <a href={`mailto:${siteConfig.contactEmail}`} style={{ color: 'var(--color-accent-mid)' }}>
+                <a href={`mailto:${siteConfig.contactEmail}`} style={{ color: 'var(--color-accent-mid)', textDecoration: 'underline' }}>
                   {siteConfig.contactEmail}
                 </a>
                 .
@@ -141,7 +141,7 @@ export default function PrivacyPage() {
 
             <div style={{ paddingBlockStart: 32, borderTop: '1px solid rgba(0,0,0,0.1)', fontSize: 12, color: 'var(--color-text-muted)' }}>
               For questions about this privacy policy, contact{' '}
-              <a href={`mailto:${siteConfig.contactEmail}`} style={{ color: 'var(--color-accent-mid)' }}>
+              <a href={`mailto:${siteConfig.contactEmail}`} style={{ color: 'var(--color-accent-mid)', textDecoration: 'underline' }}>
                 {siteConfig.contactEmail}
               </a>
               .

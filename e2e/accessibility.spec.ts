@@ -5,6 +5,7 @@ const pages = [
   '/',
   '/about',
   '/contact',
+  '/privacy',
   '/advisory-services',
   '/investment-intelligence',
   '/insights',

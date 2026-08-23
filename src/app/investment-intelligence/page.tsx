@@ -11,9 +11,9 @@ import { marketIntelligence } from '@/content/track-record';
 import { ArrowUpRight } from 'lucide-react';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Investment Intelligence',
+  title: 'Operating Intelligence',
   description:
-    'Proprietary market intelligence, sector research, and investment theme analysis across GCC and MENA real estate markets.',
+    'Selected founder analysis and operating observations for GCC real-estate businesses — focusing on enquiry conversion, sales routing, and CRM workflow.',
 });
 
 const sectors = [
@@ -24,8 +24,7 @@ const sectors = [
   { label: 'Doha', sub: 'Residential, Office' },
   { label: 'Kuwait City', sub: 'Mixed-Use, Commercial' },
   { label: 'Muscat', sub: 'Residential, Tourism' },
-  { label: 'Cairo', sub: 'Residential, Logistics' },
-  { label: 'NEOM', sub: 'Mixed-Use, Hospitality' },
+  { label: 'Manama', sub: 'Mixed-Use, Hospitality' },
 ];
 
 export default function InvestmentIntelligencePage() {
@@ -46,12 +45,10 @@ export default function InvestmentIntelligencePage() {
               marginBlockEnd: 20,
             }}
           >
-            Investment Intelligence
+            Operating Intelligence
           </h1>
           <p style={{ fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 620 }}>
-            Proprietary research across nine GCC and MENA markets. Our intelligence is generated
-            through primary market research — not resold from consultancy reports. We share
-            selected views publicly. Full research access is reserved for advisory clients.
+            Selected founder analysis and operating observations for GCC real-estate businesses. We share operator perspectives on enquiry capture, lead qualification, sales routing, and CRM workflow.
           </p>
         </Container>
       </div>
@@ -59,9 +56,9 @@ export default function InvestmentIntelligencePage() {
       {/* ── Market Intelligence ── */}
       <section aria-labelledby="intel-heading" style={{ background: 'var(--color-bg-white)', paddingBlock: 'var(--space-20)' }}>
         <Container>
-          <SectionLabel variant="light">Current Market Views</SectionLabel>
+          <SectionLabel variant="light">Current Operator Views</SectionLabel>
           <h2 id="intel-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,2.5vw,38px)', fontWeight: 400, color: 'var(--color-text-primary)', lineHeight: 1.25, marginBlockEnd: 52 }}>
-            GCC Market Commentary
+            GCC Real-Estate Operator Analysis
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0" style={{ borderTop: '1px solid rgba(0,0,0,0.1)', borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
             {marketIntelligence.map((item, i) => (
@@ -71,12 +68,12 @@ export default function InvestmentIntelligencePage() {
         </Container>
       </section>
 
-      {/* ── Investment Themes ── */}
+      {/* ── Operating Perspectives / Themes ── */}
       <section aria-labelledby="themes-heading" style={{ background: 'var(--color-bg-warm)', paddingBlock: 'var(--space-20)' }}>
         <Container>
-          <SectionLabel variant="light">Investment Themes</SectionLabel>
+          <SectionLabel variant="light">Process Bottlenecks</SectionLabel>
           <h2 id="themes-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,2.5vw,38px)', fontWeight: 400, color: 'var(--color-text-primary)', lineHeight: 1.25, marginBlockEnd: 48 }}>
-            Where We Have Conviction
+            Where Revenue Leaks Occur
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px" style={{ background: '#FFFFFF', border: '1px solid rgba(0,0,0,0.1)' }}>
             {investmentThemes.map((theme) => (
@@ -89,26 +86,25 @@ export default function InvestmentIntelligencePage() {
       {/* ── Market Coverage ── */}
       <section aria-labelledby="markets-heading" style={{ background: 'var(--color-bg-white)', paddingBlock: 'var(--space-20)' }}>
         <Container>
-          <SectionLabel variant="light">Market Coverage</SectionLabel>
+          <SectionLabel variant="light">GCC Market Scope</SectionLabel>
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-start">
             <div>
               <h2 id="markets-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px,2.5vw,34px)', fontWeight: 400, color: 'var(--color-text-primary)', lineHeight: 1.3, marginBlockEnd: 20 }}>
-                Nine Markets. Quarterly Primary Research.
+                Regional Market Coverage
               </h2>
               <p style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--color-text-secondary)' }}>
-                Our research team conducts primary market intelligence across nine markets each quarter.
-                Vacancy, absorption, pricing, and pipeline are updated from direct market engagement.
+                Our diagnostic framework addresses the specific enquiry capture, qualification, and sales routing challenges found across key GCC real-estate markets.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 lg:gap-y-0" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 lg:gap-y-0" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
               {sectors.map((s, i) => (
                 <div
                   key={s.label}
                   style={{
                     paddingBlock: 24,
-                    paddingInline: i % 3 > 0 ? 24 : 0,
-                    borderInlineStart: i % 3 > 0 ? '1px solid rgba(0,0,0,0.08)' : 'none',
-                    borderBlockEnd: i < 6 ? '1px solid rgba(0,0,0,0.08)' : 'none',
+                    paddingInline: i % 4 > 0 ? 20 : 0,
+                    borderInlineStart: i % 4 > 0 ? '1px solid rgba(0,0,0,0.08)' : 'none',
+                    borderBlockEnd: i < 4 ? '1px solid rgba(0,0,0,0.08)' : 'none',
                   }}
                 >
                   <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--color-text-primary)', marginBlockEnd: 4 }}>{s.label}</div>
@@ -120,28 +116,23 @@ export default function InvestmentIntelligencePage() {
         </Container>
       </section>
 
-      {/* ── Strategic Outlook ── */}
+      {/* ── Operational Focus ── */}
       <section aria-labelledby="outlook-heading" style={{ background: 'var(--color-bg-dark)', paddingBlock: 'var(--space-20)' }}>
         <Container>
-          <SectionLabel variant="dark">Strategic Outlook — 2026–2028</SectionLabel>
+          <SectionLabel variant="dark">Operational Focus</SectionLabel>
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-start">
             <h2 id="outlook-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px,2.5vw,34px)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.3 }}>
-              Our Current Position on GCC Real Estate
+              Improving Lead-to-Appointment Conversion
             </h2>
             <div>
               <p style={{ fontSize: 14, lineHeight: 1.85, color: 'rgba(255,255,255,0.55)', marginBlockEnd: 24 }}>
-                GCC real estate markets are navigating a complex transition: the post-pandemic liquidity
-                cycle is normalising, global interest rates remain elevated, and Vision 2030 capital
-                deployment is generating structural demand in specific sectors.
+                As GCC real-estate markets evolve, the cost of acquiring enquiries continues to rise. Operators who cannot measure their enquiry-to-appointment rate lose revenue between marketing demand and sales assignment.
               </p>
               <p style={{ fontSize: 14, lineHeight: 1.85, color: 'rgba(255,255,255,0.55)', marginBlockEnd: 32 }}>
-                Our current conviction is highest in logistics, data centers, and select hospitality —
-                sectors supported by structural demand drivers that are relatively insulated from
-                interest rate sensitivity. We remain cautious on speculative residential and highly
-                leveraged development mandates.
+                Our focus is helping developers and operators diagnose their sales process, eliminate handoff delays, and structure follow-up workflows so a higher percentage of enquiries become qualified appointments.
               </p>
               <Button href="/contact" variant="secondary" theme="dark" size="md" icon={<ArrowUpRight size={14} aria-hidden="true" />}>
-                Discuss Our Views
+                Request a Diagnostic
               </Button>
             </div>
           </div>

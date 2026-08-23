@@ -23,12 +23,6 @@ export default function Navigation() {
   const pathname = usePathname();
   const scrolled = useScrolled(40);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsMounted(true);
-  }, []);
 
   const isHome = pathname === '/';
   const isActive = (href: string) => pathname === href;
@@ -178,29 +172,25 @@ export default function Navigation() {
               </Link>
             </div>
 
-            {isMounted ? (
-              <button
-                className="nav-mobile-trigger"
-                onClick={() => setMenuOpen(!menuOpen)}
-                aria-expanded={menuOpen}
-                aria-controls="mobile-menu"
-                aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  color: '#FFFFFF',
-                  padding: 4,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
-              </button>
-            ) : (
-              <div style={{ width: 30, height: 30 }} />
-            )}
+            <button
+              className="nav-mobile-trigger"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: '#FFFFFF',
+                padding: 4,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
+            </button>
           </div>
         </div>
       </nav>

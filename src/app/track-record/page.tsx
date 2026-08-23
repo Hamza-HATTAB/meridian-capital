@@ -97,6 +97,9 @@ export default function TrackRecordPage() {
             {/* Recharts — client-side only */}
             <TrackRecordCharts />
           </div>
+          <p style={{ fontSize: 11, color: 'var(--color-text-muted)', marginBlockStart: 12 }}>
+            * Note: Sector and regional distribution figures represent indicative GCC real-estate enquiry pattern estimates compiled for illustrative contextual analysis (August 2026).
+          </p>
         </Container>
       </section>
 

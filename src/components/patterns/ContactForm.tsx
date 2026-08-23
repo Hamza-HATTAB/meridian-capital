@@ -72,7 +72,7 @@ export function ContactForm() {
             Diagnostic request received.
           </div>
           <div style={{ fontSize: 12, color: 'rgba(255, 255, 255, 0.5)' }}>
-            We will review your situation and respond within two business days to confirm whether the diagnostic is relevant and how to proceed.
+            We review your request and respond within two business days.
           </div>
         </div>
       )}
@@ -205,7 +205,7 @@ export function ContactForm() {
               }}
             >
               <option value="" style={{ background: '#0A0C14' }}>Select market…</option>
-              {['UAE', 'Saudi Arabia', 'Qatar', 'Kuwait', 'Bahrain', 'Oman', 'Other GCC'].map((m) => (
+              {['Saudi Arabia', 'United Arab Emirates', 'Qatar', 'Kuwait', 'Bahrain', 'Oman', 'Other GCC'].map((m) => (
                 <option key={m} value={m} style={{ background: '#0A0C14' }}>{m}</option>
               ))}
             </select>
@@ -288,12 +288,12 @@ export function ContactForm() {
           <p
             style={{
               fontSize: 11,
-              color: 'rgba(255, 255, 255, 0.45)',
+              color: 'rgba(255, 255, 255, 0.75)',
               lineHeight: 1.7,
               marginBlockEnd: 20,
             }}
           >
-            By submitting, you confirm this is a genuine enquiry about real-estate operating systems advisory. We review all requests before responding. We do not provide property brokerage, investment advice, or capital placement services. Your information will be used only to assess and respond to your enquiry.
+            By submitting, you confirm this is a genuine enquiry about real-estate operating systems advisory. We review your request and respond within two business days. We do not provide property brokerage, investment advice, or capital placement services. Your information will be used only to assess and respond to your enquiry.
           </p>
 
           <Button
@@ -303,7 +303,7 @@ export function ContactForm() {
             size="lg"
             disabled={isPending}
           >
-            {isPending ? 'Submitting…' : 'Request a Diagnostic'}
+            {isPending ? 'Submitting…' : 'Request a Real-Estate Lead-to-Appointment Diagnostic'}
           </Button>
 
           <div style={{ marginTop: 24 }}>

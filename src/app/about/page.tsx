@@ -82,7 +82,7 @@ export default function AboutPage() {
                 padding: '40px 36px',
               }}
             >
-              <div style={{ fontFamily: 'monospace', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.5)', marginBlockEnd: 28 }}>
+              <div style={{ fontFamily: 'monospace', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#555555', marginBlockEnd: 28 }}>
                 [ THE TYPICAL PATTERN ]
               </div>
               {[
@@ -186,7 +186,7 @@ export default function AboutPage() {
       {/* ── Scope Disclaimer ── */}
       <section aria-label="Scope and limitations" style={{ background: 'var(--color-bg-dark)', paddingBlock: 40 }}>
         <Container>
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 760 }}>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, maxWidth: 760 }}>
             North Star Advisory provides real-estate operating systems advisory — focused on enquiry capture, lead qualification, sales routing, CRM workflow, and conversion measurement for GCC real-estate developers and operators. We do not provide property brokerage, regulated investment advisory, capital placement, or investment product solicitation services.
           </p>
         </Container>

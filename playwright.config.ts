@@ -9,13 +9,13 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://127.0.0.1:3000',
+    baseURL: 'http://127.0.0.1:3005',
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'npm run start -- -p 3000',
-    url: 'http://127.0.0.1:3000',
-    reuseExistingServer: !process.env.CI,
+    command: 'npm run start -- -p 3005',
+    url: 'http://127.0.0.1:3005',
+    reuseExistingServer: false,
   },
   projects: [
     {

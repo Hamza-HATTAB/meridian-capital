@@ -17,7 +17,7 @@ vi.mock('@/content/transactions', () => ({
       id: 'tx-2',
       title: 'Project Beta',
       type: 'Residential',
-      market: 'Abu Dhabi, KSA', // Matches KSA and Abu Dhabi theoretically, wait the filter uses string includes
+      market: 'Abu Dhabi, KSA',
       strategy: 'Value-Add',
       role: 'Lead',
     },
@@ -36,32 +36,32 @@ describe('TransactionsClient', () => {
     vi.clearAllMocks();
   });
 
-  it('renders all transactions initially', () => {
+  it('renders all scenarios initially', () => {
     render(<TransactionsClient />);
 
-    expect(screen.getByText(/Advisory Evidence — 2 Transactions/i)).toBeInTheDocument();
+    expect(screen.getByText(/Illustrative Scenarios — 2 Scenarios/i)).toBeInTheDocument();
     expect(screen.getByText('Project Alpha')).toBeInTheDocument();
     expect(screen.getByText('Project Beta')).toBeInTheDocument();
   });
 
-  it('filters transactions by type', () => {
+  it('filters scenarios by type', () => {
     render(<TransactionsClient />);
 
     const officeBtn = screen.getByRole('button', { name: /^Office$/i });
     fireEvent.click(officeBtn);
 
-    expect(screen.getByText(/Advisory Evidence — 1 Transaction/i)).toBeInTheDocument();
+    expect(screen.getByText(/Illustrative Scenarios — 1 Scenario/i)).toBeInTheDocument();
     expect(screen.getByText('Project Alpha')).toBeInTheDocument();
     expect(screen.queryByText('Project Beta')).not.toBeInTheDocument();
   });
 
-  it('filters transactions by market', () => {
+  it('filters scenarios by market', () => {
     render(<TransactionsClient />);
 
     const ksaBtn = screen.getByRole('button', { name: /^KSA$/i });
     fireEvent.click(ksaBtn);
 
-    expect(screen.getByText(/Advisory Evidence — 1 Transaction/i)).toBeInTheDocument();
+    expect(screen.getByText(/Illustrative Scenarios — 1 Scenario/i)).toBeInTheDocument();
     expect(screen.queryByText('Project Alpha')).not.toBeInTheDocument();
     expect(screen.getByText('Project Beta')).toBeInTheDocument();
   });
@@ -76,7 +76,7 @@ describe('TransactionsClient', () => {
     fireEvent.click(dubaiBtn);
 
     // Residential + Dubai matches nothing in our mock data
-    expect(screen.getByText(/No transactions match the selected filters/i)).toBeInTheDocument();
+    expect(screen.getByText(/No scenarios match the selected filters/i)).toBeInTheDocument();
     expect(screen.queryByTestId('transaction-row')).not.toBeInTheDocument();
   });
 

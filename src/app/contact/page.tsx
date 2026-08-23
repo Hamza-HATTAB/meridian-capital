@@ -29,10 +29,10 @@ export default function ContactPage() {
               marginBlockEnd: 20,
             }}
           >
-            Request a Lead-to-Appointment Diagnostic
+            Request a Real-Estate Lead-to-Appointment Diagnostic
           </h1>
           <p style={{ fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 580 }}>
-            Tell us about your business and where you believe enquiry conversion is failing. We will review your situation and respond within two business days to confirm whether a diagnostic is relevant.
+            Tell us about your business and where you believe enquiry conversion is failing. We review your request and respond within two business days.
           </p>
         </Container>
       </div>
@@ -101,8 +101,8 @@ export default function ContactPage() {
       {/* ── Scope note ── */}
       <section aria-label="Scope notice" style={{ background: 'var(--color-bg-dark-surface)', paddingBlock: 40 }}>
         <Container>
-          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', lineHeight: 1.75, maxWidth: 840 }}>
-            {siteConfig.name} provides real-estate operating systems advisory for GCC developers and operators. This website is for informational purposes only. Submitting this form does not commence an advisory relationship. We review all enquiries before responding and will only proceed where the diagnostic is relevant to your situation. Response within two business days.
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, maxWidth: 840 }}>
+            {siteConfig.name} provides real-estate operating systems advisory for GCC developers and operators. This website is for informational purposes only. Submitting this form does not commence an advisory relationship. We review your request and respond within two business days.
           </p>
         </Container>
       </section>

@@ -360,7 +360,7 @@ export default function HomePage() {
             }}
           >
             {investmentThemes.map((theme) => (
-              <InvestmentThemeCard key={theme.id} theme={theme} />
+              <InvestmentThemeCard key={theme.id} theme={theme} variant="dark" />
             ))}
           </div>
         </Container>
@@ -751,13 +751,13 @@ export default function HomePage() {
                   maxWidth: '90%',
                 }}
               >
-                Tell us about your operation, your current enquiry channels, and where you believe conversion is failing. We will assess whether a diagnostic is relevant to your situation and respond within two business days.
+                Tell us about your operation, your current enquiry channels, and where you believe conversion is failing. We review your request and respond within two business days.
               </p>
               <p
                 style={{
                   fontSize: 12,
                   lineHeight: 1.7,
-                  color: 'rgba(255,255,255,0.4)',
+                  color: 'rgba(255,255,255,0.7)',
                   maxWidth: '85%',
                 }}
               >

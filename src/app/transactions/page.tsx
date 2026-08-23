@@ -6,9 +6,9 @@ import { siteConfig } from '@/config/site';
 import TransactionsClient from './TransactionsClient';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Transactions',
+  title: 'Illustrative Scenarios',
   description:
-    'Advisory evidence across 340+ GCC real estate transactions — logistics, hospitality, office, residential, industrial, and mixed-use.',
+    'Illustrative operating-system scenarios for GCC real estate businesses — demonstrating North Star Advisory’s lead-to-appointment diagnostic framework.',
 });
 
 export default function TransactionsPage() {
@@ -25,15 +25,14 @@ export default function TransactionsPage() {
               fontWeight: 400,
               color: '#FFFFFF',
               lineHeight: 1.15,
-              maxWidth: 680,
+              maxWidth: 720,
               marginBlockEnd: 20,
             }}
           >
-            Transactions
+            Illustrative Operating-System Scenarios
           </h1>
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 620 }}>
-            Selected mandates from our advisory record across six asset classes and eight GCC markets.
-            Our track record is published as evidence, not marketing.
+          <p style={{ fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
+            These scenarios show how North Star’s diagnostic framework applies to common GCC real-estate operating problems. They are illustrative capability demonstrations, not documented client engagements.
           </p>
         </Container>
       </div>

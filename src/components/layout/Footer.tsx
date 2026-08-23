@@ -23,7 +23,7 @@ export function Footer() {
     <footer
       style={{
         background: 'var(--color-bg-dark)',
-        color: 'rgba(255, 255, 255, 0.55)',
+        color: 'rgba(255, 255, 255, 0.7)',
         paddingBlock: '80px 40px',
       }}
     >
@@ -50,7 +50,7 @@ export function Footer() {
                 style={{
                   fontSize: 9,
                   letterSpacing: '0.22em',
-                  color: 'rgba(255, 255, 255, 0.55)',
+                  color: 'rgba(255, 255, 255, 0.7)',
                   textTransform: 'uppercase',
                 }}
               >
@@ -62,7 +62,7 @@ export function Footer() {
               style={{
                 fontSize: 13,
                 lineHeight: 1.8,
-                color: 'rgba(255, 255, 255, 0.55)',
+                color: 'rgba(255, 255, 255, 0.7)',
                 maxWidth: 300,
               }}
             >
@@ -73,7 +73,7 @@ export function Footer() {
               style={{
                 marginBlockStart: 28,
                 fontSize: 12,
-                color: 'rgba(255, 255, 255, 0.45)',
+                color: 'rgba(255, 255, 255, 0.7)',
                 lineHeight: 1.7,
                 maxWidth: 280,
               }}
@@ -89,7 +89,7 @@ export function Footer() {
                 fontSize: 10,
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                color: 'rgba(255, 255, 255, 0.55)',
+                color: 'rgba(255, 255, 255, 0.7)',
                 marginBlockEnd: 20,
                 fontWeight: 500,
               }}
@@ -112,7 +112,7 @@ export function Footer() {
                       style={{
                         textDecoration: 'none',
                         fontSize: 13,
-                        color: 'rgba(255, 255, 255, 0.55)',
+                        color: 'rgba(255, 255, 255, 0.7)',
                         transition: 'color 0.2s',
                       }}
                       className="footer-link"
@@ -132,7 +132,7 @@ export function Footer() {
                 fontSize: 10,
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                color: 'rgba(255, 255, 255, 0.55)',
+                color: 'rgba(255, 255, 255, 0.7)',
                 marginBlockEnd: 20,
                 fontWeight: 500,
               }}
@@ -155,7 +155,7 @@ export function Footer() {
                       style={{
                         textDecoration: 'none',
                         fontSize: 13,
-                        color: 'rgba(255, 255, 255, 0.55)',
+                        color: 'rgba(255, 255, 255, 0.7)',
                         transition: 'color 0.2s',
                       }}
                       className="footer-link"
@@ -175,7 +175,7 @@ export function Footer() {
                 fontSize: 10,
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                color: 'rgba(255, 255, 255, 0.55)',
+                color: 'rgba(255, 255, 255, 0.7)',
                 marginBlockEnd: 20,
                 fontWeight: 500,
               }}
@@ -193,7 +193,7 @@ export function Footer() {
               {siteConfig.markets.map((market) => (
                 <li
                   key={market}
-                  style={{ fontSize: 13, color: 'rgba(255, 255, 255, 0.55)' }}
+                  style={{ fontSize: 13, color: 'rgba(255, 255, 255, 0.7)' }}
                 >
                   {market}
                 </li>
@@ -205,7 +205,7 @@ export function Footer() {
         {/* ── Bottom Bar ── */}
         <div
           style={{
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            borderTop: '1px solid rgba(255, 255, 255, 0.12)',
             paddingBlockStart: 32,
           }}
         >
@@ -221,7 +221,7 @@ export function Footer() {
             <span
               style={{
                 fontSize: 11,
-                color: 'rgba(255, 255, 255, 0.55)',
+                color: 'rgba(255, 255, 255, 0.7)',
                 letterSpacing: '0.04em',
               }}
             >
@@ -241,7 +241,7 @@ export function Footer() {
                     href="/privacy"
                     style={{
                       fontSize: 11,
-                      color: 'rgba(255, 255, 255, 0.55)',
+                      color: 'rgba(255, 255, 255, 0.7)',
                       letterSpacing: '0.04em',
                       textDecoration: 'none',
                     }}
@@ -257,7 +257,7 @@ export function Footer() {
           <p
             style={{
               fontSize: 11,
-              color: 'rgba(255, 255, 255, 0.4)',
+              color: 'rgba(255, 255, 255, 0.65)',
               marginBlockStart: 16,
               lineHeight: 1.7,
               maxWidth: 800,

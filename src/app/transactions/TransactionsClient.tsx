@@ -9,7 +9,7 @@ import { SectionLabel } from '@/components/primitives/SectionLabel';
 
 const allTypes: TransactionType[] = ['Logistics', 'Hospitality', 'Mixed-Use', 'Office', 'Residential', 'Industrial'];
 const allMarkets = ['Dubai', 'KSA', 'Abu Dhabi', 'Qatar', 'Kuwait'];
-const tableHeaders = ['Transaction', 'Type', 'Market', 'Strategy', 'Role'];
+const tableHeaders = ['Scenario', 'Type', 'Market', 'Strategy', 'Role'];
 
 export default function TransactionsClient() {
   const [activeType, setActiveType] = useState<TransactionType | 'All'>('All');
@@ -62,15 +62,15 @@ export default function TransactionsClient() {
       </div>
 
       {/* ── Table ── */}
-      <section aria-label="Transaction evidence table" style={{ background: 'var(--color-bg-white)', paddingBlock: 'var(--space-20)' }}>
+      <section aria-label="Illustrative scenarios table" style={{ background: 'var(--color-bg-white)', paddingBlock: 'var(--space-20)' }}>
         <Container>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBlockEnd: 32 }}>
             <SectionLabel variant="light">
-              Advisory Evidence — {filtered.length} {filtered.length === 1 ? 'Transaction' : 'Transactions'}
+              Illustrative Scenarios — {filtered.length} {filtered.length === 1 ? 'Scenario' : 'Scenarios'}
             </SectionLabel>
           </div>
 
-          <div className="overflow-x-auto pb-8" tabIndex={0} aria-label="Transactions table">
+          <div className="overflow-x-auto pb-8" tabIndex={0} aria-label="Illustrative scenarios list table">
             <div className="min-w-[800px]">
               {/* Table header */}
               <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1fr]" style={{ paddingBlock: '10px 16px', borderBottom: '2px solid rgba(0,0,0,0.15)' }}>
@@ -79,24 +79,24 @@ export default function TransactionsClient() {
                 ))}
               </div>
 
-          {/* Rows */}
-          <div role="list" aria-label="Transaction list">
-            {filtered.length === 0 ? (
-              <div style={{ paddingBlock: 60, textAlign: 'center', color: 'var(--color-text-muted)', fontSize: 13 }}>
-                No transactions match the selected filters.
+              {/* Rows */}
+              <div role="list" aria-label="Scenario list">
+                {filtered.length === 0 ? (
+                  <div style={{ paddingBlock: 60, textAlign: 'center', color: 'var(--color-text-muted)', fontSize: 13 }}>
+                    No scenarios match the selected filters.
+                  </div>
+                ) : (
+                  filtered.map((tx) => (
+                    <div key={tx.id} role="listitem">
+                      <TransactionRow transaction={tx} />
+                    </div>
+                  ))
+                )}
               </div>
-            ) : (
-              filtered.map((tx) => (
-                <div key={tx.id} role="listitem">
-                  <TransactionRow transaction={tx} />
-                </div>
-              ))
-              )}
             </div>
           </div>
-        </div>
-      </Container>
-    </section>
+        </Container>
+      </section>
     </>
   );
 }

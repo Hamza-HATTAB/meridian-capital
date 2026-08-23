@@ -34,7 +34,7 @@ describe('ContactForm', () => {
     expect(screen.getByLabelText(/Work Email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Country \/ Market/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Tell us about your situation/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Request a Diagnostic/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Request a Real-Estate Lead-to-Appointment Diagnostic/i })).toBeInTheDocument();
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
