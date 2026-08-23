@@ -68,18 +68,11 @@ export function ContactForm() {
             marginBlockEnd: 32,
           }}
         >
-          <div
-            style={{
-              fontSize: 13,
-              color: '#FFFFFF',
-              marginBlockEnd: 6,
-            }}
-          >
-            Enquiry received.
+          <div style={{ fontSize: 13, color: '#FFFFFF', marginBlockEnd: 6 }}>
+            Diagnostic request received.
           </div>
           <div style={{ fontSize: 12, color: 'rgba(255, 255, 255, 0.5)' }}>
-            A member of our advisory team will be in contact within two business
-            days. We review all enquiries to ensure relevance before responding.
+            We will review your situation and respond within two business days to confirm whether the diagnostic is relevant and how to proceed.
           </div>
         </div>
       )}
@@ -102,7 +95,7 @@ export function ContactForm() {
       )}
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-        {/* Name + Institution row */}
+        {/* Name + Company row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
             <label htmlFor="contact-name" style={labelStyle}>
@@ -114,15 +107,11 @@ export function ContactForm() {
               type="text"
               autoComplete="name"
               required
-              aria-describedby={
-                state.fieldErrors?.name ? 'contact-name-error' : undefined
-              }
+              aria-describedby={state.fieldErrors?.name ? 'contact-name-error' : undefined}
               aria-invalid={!!state.fieldErrors?.name}
               style={{
                 ...inputStyle,
-                borderColor: state.fieldErrors?.name
-                  ? 'rgba(212, 132, 122, 0.6)'
-                  : undefined,
+                borderColor: state.fieldErrors?.name ? 'rgba(212, 132, 122, 0.6)' : undefined,
               }}
             />
             {state.fieldErrors?.name && (
@@ -133,90 +122,158 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="contact-institution" style={labelStyle}>
-              Institution *
+            <label htmlFor="contact-company" style={labelStyle}>
+              Company / Business *
             </label>
             <input
-              id="contact-institution"
-              name="institution"
+              id="contact-company"
+              name="company"
               type="text"
               autoComplete="organization"
               required
-              aria-describedby={
-                state.fieldErrors?.institution
-                  ? 'contact-institution-error'
-                  : undefined
-              }
-              aria-invalid={!!state.fieldErrors?.institution}
+              aria-describedby={state.fieldErrors?.company ? 'contact-company-error' : undefined}
+              aria-invalid={!!state.fieldErrors?.company}
               style={{
                 ...inputStyle,
-                borderColor: state.fieldErrors?.institution
-                  ? 'rgba(212, 132, 122, 0.6)'
-                  : undefined,
+                borderColor: state.fieldErrors?.company ? 'rgba(212, 132, 122, 0.6)' : undefined,
               }}
             />
-            {state.fieldErrors?.institution && (
-              <span
-                id="contact-institution-error"
-                style={errorStyle}
-                role="alert"
-              >
-                {state.fieldErrors.institution[0]}
+            {state.fieldErrors?.company && (
+              <span id="contact-company-error" style={errorStyle} role="alert">
+                {state.fieldErrors.company[0]}
               </span>
             )}
           </div>
         </div>
 
-        {/* Email */}
-        <div>
-          <label htmlFor="contact-email" style={labelStyle}>
-            Institutional Email Address *
-          </label>
-          <input
-            id="contact-email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            aria-describedby={
-              state.fieldErrors?.email ? 'contact-email-error' : undefined
-            }
-            aria-invalid={!!state.fieldErrors?.email}
-            style={{
-              ...inputStyle,
-              borderColor: state.fieldErrors?.email
-                ? 'rgba(212, 132, 122, 0.6)'
-                : undefined,
-            }}
-          />
-          {state.fieldErrors?.email && (
-            <span id="contact-email-error" style={errorStyle} role="alert">
-              {state.fieldErrors.email[0]}
-            </span>
-          )}
+        {/* Role + Email row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="contact-role" style={labelStyle}>
+              Role / Title
+            </label>
+            <input
+              id="contact-role"
+              name="role"
+              type="text"
+              autoComplete="organization-title"
+              style={inputStyle}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="contact-email" style={labelStyle}>
+              Work Email *
+            </label>
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              aria-describedby={state.fieldErrors?.email ? 'contact-email-error' : undefined}
+              aria-invalid={!!state.fieldErrors?.email}
+              style={{
+                ...inputStyle,
+                borderColor: state.fieldErrors?.email ? 'rgba(212, 132, 122, 0.6)' : undefined,
+              }}
+            />
+            {state.fieldErrors?.email && (
+              <span id="contact-email-error" style={errorStyle} role="alert">
+                {state.fieldErrors.email[0]}
+              </span>
+            )}
+          </div>
         </div>
 
-        {/* Enquiry */}
+        {/* Country + Portfolio Type row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="contact-country" style={labelStyle}>
+              Country / Market *
+            </label>
+            <select
+              id="contact-country"
+              name="country"
+              required
+              aria-describedby={state.fieldErrors?.country ? 'contact-country-error' : undefined}
+              aria-invalid={!!state.fieldErrors?.country}
+              style={{
+                ...inputStyle,
+                borderColor: state.fieldErrors?.country ? 'rgba(212, 132, 122, 0.6)' : undefined,
+                cursor: 'pointer',
+              }}
+            >
+              <option value="" style={{ background: '#0A0C14' }}>Select market…</option>
+              {['UAE', 'Saudi Arabia', 'Qatar', 'Kuwait', 'Bahrain', 'Oman', 'Other GCC'].map((m) => (
+                <option key={m} value={m} style={{ background: '#0A0C14' }}>{m}</option>
+              ))}
+            </select>
+            {state.fieldErrors?.country && (
+              <span id="contact-country-error" style={errorStyle} role="alert">
+                {state.fieldErrors.country[0]}
+              </span>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="contact-portfolio" style={labelStyle}>
+              Portfolio / Development Type
+            </label>
+            <input
+              id="contact-portfolio"
+              name="portfolio"
+              type="text"
+              placeholder="e.g. Residential, Mixed-Use, Hospitality"
+              style={{
+                ...inputStyle,
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Primary Bottleneck */}
+        <div>
+          <label htmlFor="contact-bottleneck" style={labelStyle}>
+            Where do you think the conversion problem is?
+          </label>
+          <select
+            id="contact-bottleneck"
+            name="bottleneck"
+            style={{ ...inputStyle, cursor: 'pointer' }}
+          >
+            <option value="" style={{ background: '#0A0C14' }}>Select the most likely area…</option>
+            {[
+              'Enquiry capture — leads not entering the system',
+              'Response time — too slow to first contact',
+              'Lead qualification — poor criteria or consistency',
+              'Routing — wrong agent or project assignment',
+              'CRM handoff — data not transferred or lost',
+              'Follow-up — not enough structured outreach',
+              'Not sure — that is why I want the diagnostic',
+            ].map((opt) => (
+              <option key={opt} value={opt} style={{ background: '#0A0C14' }}>{opt}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Enquiry context */}
         <div>
           <label htmlFor="contact-enquiry" style={labelStyle}>
-            Nature of Enquiry *
+            Tell us about your situation *
           </label>
           <textarea
             id="contact-enquiry"
             name="enquiry"
-            rows={6}
+            rows={5}
             required
-            placeholder="Please describe your advisory requirements, investment mandate, or the specific nature of your enquiry."
-            aria-describedby={
-              state.fieldErrors?.enquiry ? 'contact-enquiry-error' : undefined
-            }
+            placeholder="Describe your current enquiry process, the volume you are receiving, and where conversion is falling short."
+            aria-describedby={state.fieldErrors?.enquiry ? 'contact-enquiry-error' : undefined}
             aria-invalid={!!state.fieldErrors?.enquiry}
             style={{
               ...inputStyle,
               resize: 'vertical',
-              borderColor: state.fieldErrors?.enquiry
-                ? 'rgba(212, 132, 122, 0.6)'
-                : undefined,
+              borderColor: state.fieldErrors?.enquiry ? 'rgba(212, 132, 122, 0.6)' : undefined,
             }}
           />
           {state.fieldErrors?.enquiry && (
@@ -226,20 +283,17 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Disclaimer + Submit */}
+        {/* Consent + Submit */}
         <div>
           <p
             style={{
               fontSize: 11,
-              color: 'rgba(255, 255, 255, 0.55)',
+              color: 'rgba(255, 255, 255, 0.45)',
               lineHeight: 1.7,
               marginBlockEnd: 20,
             }}
           >
-            This firm does not respond to broker enquiries, investment product
-            solicitations, or requests for brokerage introductions. Enquiries
-            are reviewed before response. By submitting, you confirm this is an
-            institutional advisory enquiry.
+            By submitting, you confirm this is a genuine enquiry about real-estate operating systems advisory. We review all requests before responding. We do not provide property brokerage, investment advice, or capital placement services. Your information will be used only to assess and respond to your enquiry.
           </p>
 
           <Button
@@ -249,7 +303,7 @@ export function ContactForm() {
             size="lg"
             disabled={isPending}
           >
-            {isPending ? 'Submitting…' : 'Request Discussion'}
+            {isPending ? 'Submitting…' : 'Request a Diagnostic'}
           </Button>
 
           <div style={{ marginTop: 24 }}>
@@ -261,14 +315,15 @@ export function ContactForm() {
       {/* Focus ring for inputs */}
       <style>{`
         form input:focus-visible,
-        form textarea:focus-visible {
+        form textarea:focus-visible,
+        form select:focus-visible {
           border-color: rgba(255, 255, 255, 0.4) !important;
           outline: 1px solid rgba(255,255,255,0.5);
           outline-offset: 2px;
         }
         form input::placeholder,
         form textarea::placeholder {
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.4);
           font-size: 13px;
         }
       `}</style>

@@ -14,15 +14,25 @@ const contactSchema = z.object({
     .string()
     .min(2, 'Name must be at least 2 characters.')
     .max(100, 'Name must not exceed 100 characters.'),
-  institution: z
+  company: z
     .string()
-    .min(2, 'Institution name must be at least 2 characters.')
-    .max(200, 'Institution name must not exceed 200 characters.'),
+    .min(2, 'Company name must be at least 2 characters.')
+    .max(200, 'Company name must not exceed 200 characters.'),
+  role: z.string().max(100, 'Role must not exceed 100 characters.').optional(),
   email: z.string().email('Please enter a valid email address.'),
+  country: z
+    .string()
+    .min(1, 'Please select your country or market.')
+    .max(50, 'Country must not exceed 50 characters.'),
+  portfolio: z
+    .string()
+    .max(200, 'Portfolio type must not exceed 200 characters.')
+    .optional(),
+  bottleneck: z.string().max(200, 'Selection must not exceed 200 characters.').optional(),
   enquiry: z
     .string()
-    .min(20, 'Please provide at least 20 characters describing your enquiry.')
-    .max(2000, 'Enquiry must not exceed 2000 characters.'),
+    .min(20, 'Please provide at least 20 characters describing your situation.')
+    .max(3000, 'Message must not exceed 3000 characters.'),
 });
 
 export type ContactFormState = {
@@ -66,7 +76,7 @@ export async function submitContactForm(
       if (!rateLimitSuccess) {
         return {
           success: false,
-          error: 'Too many inquiries sent. Please try again later.',
+          error: 'Too many requests sent. Please try again later.',
         };
       }
     } catch (error) {
@@ -92,7 +102,7 @@ export async function submitContactForm(
       body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${token}`,
     }
   );
-  
+
   const turnstileResponse = await turnstileVerify.json();
   if (!turnstileResponse.success) {
     return {
@@ -103,8 +113,12 @@ export async function submitContactForm(
 
   const raw = {
     name: formData.get('name'),
-    institution: formData.get('institution'),
+    company: formData.get('company'),
+    role: formData.get('role') || undefined,
     email: formData.get('email'),
+    country: formData.get('country'),
+    portfolio: formData.get('portfolio') || undefined,
+    bottleneck: formData.get('bottleneck') || undefined,
     enquiry: formData.get('enquiry'),
   };
 
@@ -120,12 +134,12 @@ export async function submitContactForm(
     };
   }
 
-  const { name, institution, email, enquiry } = parsed.data;
+  const { name, company, role, email, country, portfolio, bottleneck, enquiry } = parsed.data;
 
   const html = `
     <div style="font-family: Georgia, serif; max-width: 600px; color: #1A1A1A;">
       <h2 style="font-size: 20px; font-weight: 400; margin-bottom: 24px; border-bottom: 1px solid #E0DDD5; padding-bottom: 16px;">
-        New Institutional Enquiry — ${siteConfig.name}
+        Diagnostic Request — ${siteConfig.name}
       </h2>
       <table style="width: 100%; border-collapse: collapse;">
         <tr>
@@ -133,28 +147,44 @@ export async function submitContactForm(
           <td style="padding: 10px 0; font-size: 14px; color: #1A1A1A;">${name}</td>
         </tr>
         <tr>
-          <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #726757;">Institution</td>
-          <td style="padding: 10px 0; font-size: 14px; color: #1A1A1A;">${institution}</td>
+          <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #726757;">Company</td>
+          <td style="padding: 10px 0; font-size: 14px; color: #1A1A1A;">${company}</td>
         </tr>
+        ${role ? `<tr>
+          <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #726757;">Role</td>
+          <td style="padding: 10px 0; font-size: 14px; color: #1A1A1A;">${role}</td>
+        </tr>` : ''}
         <tr>
           <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #726757;">Email</td>
           <td style="padding: 10px 0; font-size: 14px; color: #1A1A1A;">${email}</td>
         </tr>
+        <tr>
+          <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #726757;">Market</td>
+          <td style="padding: 10px 0; font-size: 14px; color: #1A1A1A;">${country}</td>
+        </tr>
+        ${portfolio ? `<tr>
+          <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #726757;">Portfolio Type</td>
+          <td style="padding: 10px 0; font-size: 14px; color: #1A1A1A;">${portfolio}</td>
+        </tr>` : ''}
+        ${bottleneck ? `<tr>
+          <td style="padding: 10px 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #726757;">Primary Bottleneck</td>
+          <td style="padding: 10px 0; font-size: 14px; color: #1A1A1A;">${bottleneck}</td>
+        </tr>` : ''}
       </table>
       <div style="margin-top: 24px; padding: 20px; background: #F5F3EE; border-left: 3px solid #6B604E;">
-        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #726757; margin-bottom: 10px;">Nature of Enquiry</div>
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #726757; margin-bottom: 10px;">Situation</div>
         <p style="font-size: 14px; line-height: 1.75; color: #5C5C5C; white-space: pre-wrap;">${enquiry}</p>
       </div>
-      <p style="margin-top: 32px; font-size: 11px; color: var(--color-text-muted);">
+      <p style="margin-top: 32px; font-size: 11px; color: #9A9A9A;">
         Received via ${siteConfig.name} website · ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
       </p>
     </div>
   `;
 
   const result = await emailService.send({
-    from: 'Meridian Capital <noreply@northstaradvisory.pro>',
-    to: 'hamza@northstaradvisory.pro',
-    subject: `Institutional Enquiry — ${name}, ${institution}`,
+    from: `${siteConfig.name} <${siteConfig.fromEmail}>`,
+    to: siteConfig.contactEmail,
+    subject: `Diagnostic Request — ${name}, ${company}`,
     html,
     replyTo: email,
   });
@@ -162,7 +192,7 @@ export async function submitContactForm(
   if (!result.success) {
     return {
       success: false,
-      error: 'We were unable to submit your enquiry. Please try again or contact us directly.',
+      error: 'We were unable to submit your request. Please try again or contact us directly.',
     };
   }
 

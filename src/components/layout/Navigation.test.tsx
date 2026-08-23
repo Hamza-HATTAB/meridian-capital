@@ -24,7 +24,7 @@ describe('Navigation', () => {
     render(<Navigation />);
 
     // Logo
-    expect(screen.getByText(/Meridian/i)).toBeInTheDocument();
+    expect(screen.getByText(/North/i)).toBeInTheDocument();
     
     // Links
     expect(screen.getAllByText('About').length).toBeGreaterThan(0);

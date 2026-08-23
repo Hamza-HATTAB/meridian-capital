@@ -11,8 +11,8 @@ vi.mock('@/lib/email/resend', () => ({
 vi.mock('@/config/site', () => ({
   siteConfig: {
     name: 'Test Site',
-    fromEmail: 'noreply@test.com',
-    contactEmail: 'contact@test.com',
+    fromEmail: 'noreply@northstaradvisory.pro',
+    contactEmail: 'hamza@northstaradvisory.pro',
   },
 }));
 
@@ -45,6 +45,14 @@ describe('submitContactForm server action', () => {
     return fd;
   };
 
+  const validData = {
+    name: 'John Doe',
+    company: 'Test Corp',
+    email: 'john@test.com',
+    country: 'UAE',
+    enquiry: 'This is a long enough enquiry to pass the length check.',
+  };
+
   beforeEach(() => {
     vi.clearAllMocks();
     global.fetch = vi.fn().mockResolvedValue({
@@ -59,31 +67,28 @@ describe('submitContactForm server action', () => {
     expect(result.success).toBe(false);
     expect(result.error).toBe('Please correct the errors below.');
     expect(result.fieldErrors).toHaveProperty('name');
-    expect(result.fieldErrors).toHaveProperty('institution');
+    expect(result.fieldErrors).toHaveProperty('company');
     expect(result.fieldErrors).toHaveProperty('email');
+    expect(result.fieldErrors).toHaveProperty('country');
     expect(result.fieldErrors).toHaveProperty('enquiry');
     expect(emailService.send).not.toHaveBeenCalled();
   });
 
   it('fails validation when enquiry is too short', async () => {
     const formData = createFormData({
-      name: 'John Doe',
-      institution: 'Test Corp',
-      email: 'john@test.com',
+      ...validData,
       enquiry: 'Too short',
     });
     const result = await submitContactForm({ success: false }, formData);
 
     expect(result.success).toBe(false);
-    expect(result.fieldErrors?.enquiry).toContain('Please provide at least 20 characters describing your enquiry.');
+    expect(result.fieldErrors?.enquiry).toContain('Please provide at least 20 characters describing your situation.');
   });
 
   it('fails validation on invalid email', async () => {
     const formData = createFormData({
-      name: 'John Doe',
-      institution: 'Test Corp',
+      ...validData,
       email: 'not-an-email',
-      enquiry: 'This is a long enough enquiry to pass the length check.',
     });
     const result = await submitContactForm({ success: false }, formData);
 
@@ -91,33 +96,32 @@ describe('submitContactForm server action', () => {
     expect(result.fieldErrors?.email).toContain('Please enter a valid email address.');
   });
 
-  it('handles email service failure', async () => {
-    vi.mocked(emailService.send).mockResolvedValueOnce({ success: false, error: 'API Error' });
-
-    const formData = createFormData({
-      name: 'John Doe',
-      institution: 'Test Corp',
-      email: 'john@test.com',
-      enquiry: 'This is a long enough enquiry to pass the length check.',
-    });
-
+  it('fails validation when country is missing', async () => {
+    const dataWithoutCountry = Object.fromEntries(
+      Object.entries(validData).filter(([k]) => k !== 'country')
+    );
+    const formData = createFormData(dataWithoutCountry);
     const result = await submitContactForm({ success: false }, formData);
 
     expect(result.success).toBe(false);
-    expect(result.error).toBe('We were unable to submit your enquiry. Please try again or contact us directly.');
+    expect(result.fieldErrors).toHaveProperty('country');
+  });
+
+  it('handles email service failure', async () => {
+    vi.mocked(emailService.send).mockResolvedValueOnce({ success: false, error: 'API Error' });
+
+    const formData = createFormData(validData);
+    const result = await submitContactForm({ success: false }, formData);
+
+    expect(result.success).toBe(false);
+    expect(result.error).toBe('We were unable to submit your request. Please try again or contact us directly.');
     expect(emailService.send).toHaveBeenCalledTimes(1);
   });
 
-  it('sends email and returns success when valid', async () => {
+  it('sends email and returns success when valid (required fields only)', async () => {
     vi.mocked(emailService.send).mockResolvedValueOnce({ success: true });
 
-    const formData = createFormData({
-      name: 'John Doe',
-      institution: 'Test Corp',
-      email: 'john@test.com',
-      enquiry: 'This is a long enough enquiry to pass the length check.',
-    });
-
+    const formData = createFormData(validData);
     const result = await submitContactForm({ success: false }, formData);
 
     expect(result.success).toBe(true);
@@ -125,11 +129,31 @@ describe('submitContactForm server action', () => {
     expect(result.fieldErrors).toBeUndefined();
     expect(emailService.send).toHaveBeenCalledTimes(1);
     expect(emailService.send).toHaveBeenCalledWith({
-      from: 'noreply@test.com',
-      to: 'contact@test.com',
-      subject: 'Institutional Enquiry — John Doe, Test Corp',
+      from: 'Test Site <noreply@northstaradvisory.pro>',
+      to: 'hamza@northstaradvisory.pro',
+      subject: 'Diagnostic Request — John Doe, Test Corp',
       html: expect.stringContaining('John Doe'),
       replyTo: 'john@test.com',
     });
+  });
+
+  it('sends email and returns success with all optional fields', async () => {
+    vi.mocked(emailService.send).mockResolvedValueOnce({ success: true });
+
+    const formData = createFormData({
+      ...validData,
+      role: 'Sales Director',
+      portfolio: 'Residential',
+      bottleneck: 'Response time — too slow to first contact',
+    });
+    const result = await submitContactForm({ success: false }, formData);
+
+    expect(result.success).toBe(true);
+    expect(emailService.send).toHaveBeenCalledWith(
+      expect.objectContaining({
+        html: expect.stringContaining('Sales Director'),
+        subject: 'Diagnostic Request — John Doe, Test Corp',
+      })
+    );
   });
 });

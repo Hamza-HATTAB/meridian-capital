@@ -10,7 +10,9 @@ export type AllocationStrategy =
   | 'Core'
   | 'Core-Plus'
   | 'Value-Add'
-  | 'Development';
+  | 'Development'
+  | 'Process'
+  | 'System';
 
 export interface InvestmentTheme {
   readonly id: string;

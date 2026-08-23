@@ -1,26 +1,33 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { createMetadata } from '@/lib/metadata';
 import { Container } from '@/components/primitives/Container';
 import { SectionLabel } from '@/components/primitives/SectionLabel';
-import { TeamMemberCard } from '@/components/patterns/TeamMemberCard';
 import { siteConfig } from '@/config/site';
 import { teamMembers } from '@/content/team';
 
-const BOARDROOM_IMG =
-  'https://images.unsplash.com/photo-1571624436279-b272aff752b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080';
-
 export const metadata: Metadata = createMetadata({
-  title: 'About the Firm',
+  title: 'About North Star Advisory',
   description:
-    'MERIDIAN Capital Advisory was founded in 2006 with one purpose: genuinely independent real estate advisory for institutional capital in the GCC.',
+    'North Star Advisory is a real-estate growth systems practice focused on GCC developers and operators. We help businesses find and fix the process gaps between enquiry capture and appointment conversion.',
 });
 
-const methodologyItems = [
-  { title: 'Primary Research', desc: 'Quarterly primary research across nine markets. Direct engagement with tenants, developers, valuers, and transacting parties to capture leading indicators not visible in published data.' },
-  { title: 'Transaction Intelligence', desc: 'Systematic collection and analysis of actual transaction evidence. Our comparable database represents 18 years of GCC transaction data, covering off-market as well as publicly reported deals.' },
-  { title: 'Risk Framework', desc: 'Every recommendation is assessed against our proprietary risk framework covering income risk, structural risk, market risk, exit risk, and regulatory risk. Risk cannot be advised away — it must be quantified.' },
-  { title: 'Cycle Awareness', desc: 'GCC real estate has moved through three distinct cycles since our founding. This experience informs our understanding of market dynamics in ways that cannot be replicated by firms without institutional memory.' },
+const approachItems = [
+  {
+    title: 'Diagnose Before Prescribing',
+    desc: 'Every engagement begins with a structured review of the actual process — what channels are in use, how enquiries are captured, how they are qualified, and where they are lost. We do not apply templates before understanding the specific constraint.',
+  },
+  {
+    title: 'Measure What Matters',
+    desc: 'The metric most GCC real-estate operators cannot currently produce is their enquiry-to-appointment conversion rate, broken down by stage. Making that number visible is the first step — because you cannot improve what you cannot measure.',
+  },
+  {
+    title: 'Process Over Headcount',
+    desc: 'Most conversion problems in GCC real estate are process and system problems, not people problems. A defined, consistent process produces better results than motivated individuals operating without structure.',
+  },
+  {
+    title: 'Specific Recommendations',
+    desc: 'The output of a diagnostic is a prioritised action list — not a general best-practice document. Each recommendation is specific to the gap identified, ordered by likely conversion impact, and actionable without additional analysis.',
+  },
 ];
 
 export default function AboutPage() {
@@ -41,78 +48,93 @@ export default function AboutPage() {
               marginBlockEnd: 20,
             }}
           >
-            About the Firm
+            About North Star Advisory
           </h1>
           <p style={{ fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 580 }}>
-            {siteConfig.name} was founded in {siteConfig.foundedYear} with a single purpose: to provide institutional
-            capital with genuinely independent real estate advisory across the GCC and MENA region.
+            A real-estate growth systems practice focused on GCC developers, operators, and multi-project businesses. We help businesses find and fix the process gaps between enquiry capture and appointment conversion.
           </p>
         </Container>
       </div>
 
-      {/* ── Philosophy ── */}
-      <section aria-labelledby="philosophy-heading" style={{ background: 'var(--color-bg-warm)', paddingBlock: 'var(--space-20)' }}>
+      {/* ── Why This Practice Was Built ── */}
+      <section aria-labelledby="origin-heading" style={{ background: 'var(--color-bg-warm)', paddingBlock: 'var(--space-20)' }}>
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
             <div>
-              <SectionLabel variant="light">Our Philosophy</SectionLabel>
-              <h2 id="philosophy-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,2.5vw,36px)', fontWeight: 400, color: 'var(--color-text-primary)', lineHeight: 1.3, marginBlockEnd: 28 }}>
-                Research-Driven. Conflict-Free. Disciplined.
+              <SectionLabel variant="light">Why This Practice</SectionLabel>
+              <h2 id="origin-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,2.5vw,36px)', fontWeight: 400, color: 'var(--color-text-primary)', lineHeight: 1.3, marginBlockEnd: 28 }}>
+                The problem is not demand. It is what happens after the enquiry arrives.
               </h2>
               <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--color-text-secondary)', marginBlockEnd: 20 }}>
-                We were established because we observed a structural problem in the GCC real estate
-                advisory market: the firms providing &quot;advisory&quot; to institutional capital were predominantly
-                brokers, developers, and project marketers — all with economic interests in transaction
-                completion rather than transaction quality.
+                GCC real-estate businesses spend significantly on marketing — portals, digital campaigns, events, and content. Enquiry volumes are often healthy. Appointment conversion rates frequently are not.
               </p>
               <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--color-text-secondary)', marginBlockEnd: 20 }}>
-                We built {siteConfig.name} to be a different type of firm. We earn no commission from transactions.
-                We hold no inventory. We have no developer relationships that compromise our market analysis.
-                We are paid only for the quality of our research and the quality of our advice.
+                The gap between enquiry count and appointment count is not usually a marketing problem. It is a process problem: enquiries arrive through multiple channels without consistent capture, qualification is informal or inconsistent, routing is manual and slow, CRM adoption is partial, and follow-up depends on individual sales discipline rather than system design.
               </p>
               <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--color-text-secondary)' }}>
-                Over {siteConfig.yearsExperience} years and three market cycles, this model has proven its value — most clearly in
-                the moments when the right advice was to do nothing, to wait, or to exit — advice that
-                conflicted advisors could never credibly give.
+                North Star Advisory was built to find those gaps systematically — and to produce specific, prioritised recommendations for closing them. Not generic best-practice advice. Not technology-first solutions. Process-first, system-supported, measurable.
               </p>
             </div>
-            <div>
-              <Image
-                src={BOARDROOM_IMG}
-                alt="MERIDIAN advisory meeting"
-                width={600}
-                height={440}
-                style={{ width: '100%', height: 440, objectFit: 'cover', filter: 'grayscale(15%)' }}
-              />
+            <div
+              style={{
+                background: 'var(--color-bg-white)',
+                border: '1px solid rgba(0,0,0,0.1)',
+                padding: '40px 36px',
+              }}
+            >
+              <div style={{ fontFamily: 'monospace', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.5)', marginBlockEnd: 28 }}>
+                [ THE TYPICAL PATTERN ]
+              </div>
+              {[
+                { label: 'Enquiries generated', status: 'High', positive: true },
+                { label: 'Capture consistency', status: 'Low', positive: false },
+                { label: 'Avg. response time', status: '4–24 hours', positive: false },
+                { label: 'Qualification criteria', status: 'Informal', positive: false },
+                { label: 'CRM adoption', status: 'Partial', positive: false },
+                { label: 'Follow-up structure', status: '1–2 messages', positive: false },
+                { label: 'Conversion visibility', status: 'None', positive: false },
+              ].map((row) => (
+                <div
+                  key={row.label}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '10px 0',
+                    borderBottom: '1px solid rgba(0,0,0,0.07)',
+                    fontFamily: 'monospace',
+                    fontSize: 12,
+                  }}
+                >
+                  <span style={{ color: 'rgba(0,0,0,0.6)' }}>{row.label}</span>
+                  <span style={{ fontWeight: 'bold', color: row.positive ? '#2D5A3D' : '#D90000' }}>{row.status}</span>
+                </div>
+              ))}
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ── Methodology ── */}
-      <section aria-labelledby="methodology-heading" style={{ background: 'var(--color-bg-white)', paddingBlock: 'var(--space-20)' }}>
+      {/* ── Approach ── */}
+      <section aria-labelledby="approach-heading" style={{ background: 'var(--color-bg-white)', paddingBlock: 'var(--space-20)' }}>
         <Container>
-          <SectionLabel variant="light">Methodology</SectionLabel>
+          <SectionLabel variant="light">Approach</SectionLabel>
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
-            <h2 id="methodology-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px,2.5vw,34px)', fontWeight: 400, color: 'var(--color-text-primary)', lineHeight: 1.3 }}>
-              How We Generate Conviction
+            <h2 id="approach-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px,2.5vw,34px)', fontWeight: 400, color: 'var(--color-text-primary)', lineHeight: 1.3 }}>
+              How we work
             </h2>
             <div>
               <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--color-text-secondary)', marginBlockEnd: 28 }}>
-                Our investment process is grounded in primary market research. We do not resell data from
-                consultancies or rely on published market reports as primary sources. We generate our own
-                data through direct market engagement, transaction evidence collection, and systematic
-                dialogue with local market participants.
+                Every engagement starts with the Lead-to-Appointment Diagnostic — a structured review of the enquiry journey from first contact to appointment booked. The diagnostic produces a gap analysis and a prioritised action list, not a general framework.
               </p>
               <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--color-text-secondary)' }}>
-                This approach produces intelligence that is ahead of consensus, particularly at market
-                inflection points where publicly available data lags reality by 6–12 months.
+                Where implementation support is required — workflow redesign, CRM configuration, follow-up sequence design, or conversion reporting setup — that is scoped as a separate engagement after the diagnostic has identified the specific constraint.
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-y-0" style={{ marginBlockStart: 60, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-            {methodologyItems.map((item, i) => (
+            {approachItems.map((item, i) => (
               <div key={item.title} style={{ paddingBlock: 36, paddingInlineStart: i > 0 ? 32 : 0, paddingInlineEnd: 32, borderInlineStart: i > 0 ? '1px solid rgba(0,0,0,0.08)' : 'none' }}>
                 <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--color-text-primary)', marginBlockEnd: 12 }}>{item.title}</div>
                 <p style={{ fontSize: 13, lineHeight: 1.75, color: 'var(--color-text-secondary)' }}>{item.desc}</p>
@@ -122,55 +144,51 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── Leadership ── */}
-      <section aria-labelledby="team-heading" style={{ background: 'var(--color-bg-warm)', paddingBlock: 'var(--space-20)' }}>
+      {/* ── Founder ── */}
+      <section aria-labelledby="founder-heading" style={{ background: 'var(--color-bg-warm)', paddingBlock: 'var(--space-20)' }}>
         <Container>
-          <SectionLabel variant="light">Leadership</SectionLabel>
-          <h2 id="team-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,2.5vw,36px)', fontWeight: 400, color: 'var(--color-text-primary)', marginBlockEnd: 52 }}>
-            The Advisory Team
+          <SectionLabel variant="light">Founder</SectionLabel>
+          <h2 id="founder-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,2.5vw,36px)', fontWeight: 400, color: 'var(--color-text-primary)', marginBlockEnd: 52 }}>
+            Who is behind this
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-            {teamMembers.map((member, i) => (
-              <TeamMemberCard key={member.id} member={member} index={i} />
+          <div style={{ borderTop: '1px solid rgba(0,0,0,0.1)', paddingBlockStart: 48 }}>
+            {teamMembers.map((member) => (
+              <div key={member.id} className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-24">
+                <div>
+                  <div style={{ fontSize: 16, fontWeight: 500, color: 'var(--color-text-primary)', marginBlockEnd: 8 }}>
+                    {member.name}
+                  </div>
+                  <div style={{ fontSize: 12, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBlockEnd: 20 }}>
+                    {member.title}
+                  </div>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    {member.background.map((item) => (
+                      <li key={item} style={{ fontSize: 13, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--color-text-secondary)', marginBlockEnd: 20 }}>
+                    {member.expertise}
+                  </p>
+                  <p style={{ fontSize: 14, lineHeight: 1.85, color: 'var(--color-text-secondary)', fontStyle: 'italic' }}>
+                    {member.note}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* ── Regulatory Structure (Dark) ── */}
-      <section aria-labelledby="regulatory-heading" style={{ background: 'var(--color-bg-dark)', paddingBlock: 'var(--space-20)' }}>
+      {/* ── Scope Disclaimer ── */}
+      <section aria-label="Scope and limitations" style={{ background: 'var(--color-bg-dark)', paddingBlock: 40 }}>
         <Container>
-          <SectionLabel variant="dark">Firm Structure</SectionLabel>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            <div>
-              <h2 id="regulatory-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px,2.5vw,32px)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.3, marginBlockEnd: 24 }}>
-                Regulatory Framework & Firm Structure
-              </h2>
-              <p style={{ fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.5)' }}>
-                {siteConfig.name} operates through regulated entities in both Dubai International
-                Financial Centre and Abu Dhabi Global Market, the two principal institutional financial
-                centres in the GCC. Regulatory oversight by {siteConfig.regulators.join(' and ')} respectively.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {siteConfig.entities.map((entity) => (
-                <div key={entity.label} style={{ padding: '20px 24px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBlockEnd: 8 }}>{entity.label}</div>
-                  <div style={{ fontSize: 13, color: '#FFFFFF', marginBlockEnd: 4, lineHeight: 1.4 }}>{entity.name}</div>
-                  <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>{entity.sub}</div>
-                </div>
-              ))}
-              <div style={{ padding: '20px 24px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <div style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBlockEnd: 8 }}>Principal Office</div>
-                <div style={{ fontSize: 13, color: '#FFFFFF', marginBlockEnd: 4, lineHeight: 1.4 }}>Gate Village 10, DIFC, Dubai, UAE</div>
-              </div>
-              <div style={{ padding: '20px 24px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <div style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBlockEnd: 8 }}>Established</div>
-                <div style={{ fontSize: 13, color: '#FFFFFF', lineHeight: 1.4 }}>{siteConfig.foundedYear}</div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>{siteConfig.yearsExperience} years of continuous practice</div>
-              </div>
-            </div>
-          </div>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, maxWidth: 760 }}>
+            North Star Advisory provides real-estate operating systems advisory — focused on enquiry capture, lead qualification, sales routing, CRM workflow, and conversion measurement for GCC real-estate developers and operators. We do not provide property brokerage, regulated investment advisory, capital placement, or investment product solicitation services.
+          </p>
         </Container>
       </section>
     </>

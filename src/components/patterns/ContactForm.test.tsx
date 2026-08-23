@@ -30,10 +30,11 @@ describe('ContactForm', () => {
     render(<ContactForm />);
 
     expect(screen.getByLabelText(/Full Name/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/^Institution \*/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Institutional Email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Nature of Enquiry/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Request Discussion/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/Company \/ Business/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Work Email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Country \/ Market/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Tell us about your situation/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Request a Diagnostic/i })).toBeInTheDocument();
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
@@ -52,7 +53,7 @@ describe('ContactForm', () => {
 
     render(<ContactForm />);
 
-    expect(screen.getByText('Enquiry received.')).toBeInTheDocument();
+    expect(screen.getByText('Diagnostic request received.')).toBeInTheDocument();
     expect(screen.getByRole('alert')).toBeInTheDocument();
   });
 
@@ -88,12 +89,12 @@ describe('ContactForm', () => {
     expect(nameInput).toHaveAttribute('aria-invalid', 'true');
     expect(screen.getByText('Name is too short')).toBeInTheDocument();
 
-    const emailInput = screen.getByLabelText(/Institutional Email/i);
+    const emailInput = screen.getByLabelText(/Work Email/i);
     expect(emailInput).toHaveAttribute('aria-invalid', 'true');
     expect(screen.getByText('Invalid email')).toBeInTheDocument();
 
-    // The other inputs should not have errors
-    const institutionInput = screen.getByLabelText(/^Institution \*/i);
-    expect(institutionInput).toHaveAttribute('aria-invalid', 'false');
+    // Company field should not have errors
+    const companyInput = screen.getByLabelText(/Company \/ Business/i);
+    expect(companyInput).toHaveAttribute('aria-invalid', 'false');
   });
 });

@@ -26,6 +26,7 @@ const inter = Inter({
 });
 
 // ── Root Metadata ─────────────────────────────────────────────────────────
+// Title and description sourced from siteConfig — update config/site.ts to rebrand.
 export const metadata: Metadata = createMetadata();
 
 // ── Root Layout ───────────────────────────────────────────────────────────

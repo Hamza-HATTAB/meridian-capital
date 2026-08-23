@@ -1,52 +1,53 @@
 // content/themes.ts
-// Investment themes — extracted from source UI and typed.
+// Common revenue-leak points in GCC real-estate operator businesses.
+// These are the five areas the Lead-to-Appointment Diagnostic examines.
 
 import type { InvestmentTheme } from '@/types/theme';
 
 export const investmentThemes: InvestmentTheme[] = [
   {
-    id: 'logistics-industrial',
-    sector: 'Logistics & Industrial',
+    id: 'enquiry-capture',
+    sector: 'Enquiry Capture',
     thesis:
-      'Structural undersupply against accelerating e-commerce penetration creates durable income premiums in strategically located last-mile assets.',
+      'Enquiries arriving through portals, WhatsApp, walk-ins, and referrals are captured inconsistently. A significant proportion never enter a trackable system.',
     conviction: 'High',
     markets: 'UAE, KSA',
-    allocation: 'Core-Plus',
+    allocation: 'Process',
   },
   {
-    id: 'hospitality-tourism',
-    sector: 'Hospitality & Tourism',
+    id: 'response-time',
+    sector: 'Response Time',
     thesis:
-      'Vision 2030 tourism infrastructure mandates and post-pandemic demand recovery support selective opportunities in business and lifestyle hospitality.',
-    conviction: 'Moderate-High',
-    markets: 'KSA, UAE',
-    allocation: 'Value-Add',
-  },
-  {
-    id: 'multifamily-residential',
-    sector: 'Multifamily Residential',
-    thesis:
-      'Institutional-grade multifamily remains nascent in the GCC with growing renter population and lack of professionally managed stock.',
-    conviction: 'Emerging',
-    markets: 'UAE, Qatar',
-    allocation: 'Development',
-  },
-  {
-    id: 'mixed-use-development',
-    sector: 'Mixed-Use Development',
-    thesis:
-      'Master-planned mixed-use assets with diversified income streams exhibit lower volatility and improved institutional exit liquidity.',
-    conviction: 'Moderate',
-    markets: 'UAE, Kuwait',
-    allocation: 'Core',
-  },
-  {
-    id: 'data-centers-digital',
-    sector: 'Data Centers & Digital',
-    thesis:
-      'Rapid cloud adoption, AI infrastructure demand, and sovereign digital economy mandates underpin a generational build-out opportunity.',
+      'Response time to first enquiry is the single strongest predictor of appointment conversion. Most GCC operators respond in hours or days, not minutes.',
     conviction: 'High',
-    markets: 'UAE, KSA, Oman',
-    allocation: 'Core-Plus',
+    markets: 'UAE, KSA, Qatar',
+    allocation: 'Process',
+  },
+  {
+    id: 'qualification-routing',
+    sector: 'Qualification & Routing',
+    thesis:
+      'Enquiries are frequently routed to the wrong project, unit type, or sales agent. Misrouted leads rarely recover — they are reassigned late or abandoned.',
+    conviction: 'Moderate-High',
+    markets: 'UAE, KSA',
+    allocation: 'System',
+  },
+  {
+    id: 'crm-handoff',
+    sector: 'CRM Handoff',
+    thesis:
+      'CRM adoption in GCC real-estate sales teams is partial and informal. Most activity is tracked in WhatsApp and spreadsheets, making pipeline visibility impossible.',
+    conviction: 'High',
+    markets: 'UAE, KSA, Kuwait',
+    allocation: 'System',
+  },
+  {
+    id: 'follow-up-discipline',
+    sector: 'Follow-Up Discipline',
+    thesis:
+      'Structured multi-touch follow-up is rare. Most qualified prospects who do not convert immediately are abandoned after one or two messages rather than nurtured through a decision cycle.',
+    conviction: 'High',
+    markets: 'UAE, KSA, Qatar',
+    allocation: 'Process',
   },
 ];

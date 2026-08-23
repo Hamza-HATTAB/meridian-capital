@@ -6,7 +6,11 @@ export type InsightCategory =
   | 'Market Commentary'
   | 'Investment Theme'
   | 'Market Intelligence'
-  | 'Quarterly Update';
+  | 'Quarterly Update'
+  | 'Analysis'
+  | 'Operator Insight'
+  | 'Process Analysis'
+  | 'Market Perspective';
 
 export interface Insight {
   readonly id: string;

@@ -10,9 +10,9 @@ import { siteConfig } from '@/config/site';
 import { ArrowUpRight } from 'lucide-react';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Advisory Services',
+  title: 'Engagements',
   description:
-    'Five institutional real estate advisory disciplines — capital deployment, market intelligence, transaction due diligence, portfolio strategy, and investment committee support.',
+    'Five North Star Advisory engagements for GCC real-estate operators — Lead-to-Appointment Diagnostic, Enquiry Capture Review, CRM & Sales Routing Assessment, Conversion Measurement, and Follow-Up Workflow Design.',
 });
 
 export default function AdvisoryServicesPage() {
@@ -33,12 +33,10 @@ export default function AdvisoryServicesPage() {
               marginBlockEnd: 20,
             }}
           >
-            Advisory Services
+            Engagements
           </h1>
           <p style={{ fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 620 }}>
-            We offer five advisory disciplines, each designed to give institutional capital
-            genuinely independent counsel that is free from the conflicts embedded in
-            broker, developer, and project marketing relationships.
+            Five structured engagements for GCC real-estate developers and operators, each designed around a specific, measurable problem in the enquiry-to-appointment process.
           </p>
         </Container>
       </div>
@@ -46,9 +44,9 @@ export default function AdvisoryServicesPage() {
       {/* ── Services ── */}
       <section aria-labelledby="services-heading" style={{ background: 'var(--color-bg-white)', paddingBlock: 'var(--space-20)' }}>
         <Container>
-          <SectionLabel variant="light">Five Disciplines</SectionLabel>
+          <SectionLabel variant="light">Five Engagements</SectionLabel>
           <h2 id="services-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,2.5vw,38px)', fontWeight: 400, color: 'var(--color-text-primary)', marginBlockEnd: 52 }}>
-            What We Advise On
+            What we work on
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -91,18 +89,17 @@ export default function AdvisoryServicesPage() {
         </Container>
       </section>
 
-      {/* ── Process ── */}
+      {/* ── Diagnostic Process ── */}
       <section aria-labelledby="process-heading" style={{ background: 'var(--color-bg-warm)', paddingBlock: 'var(--space-20)' }}>
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
             <div>
-              <SectionLabel variant="light">Methodology</SectionLabel>
+              <SectionLabel variant="light">Diagnostic Method</SectionLabel>
               <h2 id="process-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px,2.5vw,34px)', fontWeight: 400, color: 'var(--color-text-primary)', lineHeight: 1.3, marginBlockEnd: 20 }}>
-                How We Generate Conviction
+                How the Lead-to-Appointment Diagnostic works
               </h2>
               <p style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--color-text-secondary)' }}>
-                Every advisory mandate follows the same systematic process — from market intelligence
-                through to IC-ready recommendation and execution support.
+                Every engagement begins with the diagnostic. The output is a structured gap report and prioritised action list — not a general best-practice document.
               </p>
             </div>
             <div>
@@ -114,19 +111,19 @@ export default function AdvisoryServicesPage() {
         </Container>
       </section>
 
-      {/* ── Differentiators ── */}
-      <section aria-labelledby="diff-heading" style={{ background: 'var(--color-bg-dark)', paddingBlock: 'var(--space-20)' }}>
+      {/* ── Principles ── */}
+      <section aria-labelledby="principles-heading" style={{ background: 'var(--color-bg-dark)', paddingBlock: 'var(--space-20)' }}>
         <Container>
-          <SectionLabel variant="dark">Why MERIDIAN</SectionLabel>
-          <h2 id="diff-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,2.5vw,38px)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.25, marginBlockEnd: 52 }}>
-            The Structural Difference
+          <SectionLabel variant="dark">Principles</SectionLabel>
+          <h2 id="principles-heading" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px,2.5vw,38px)', fontWeight: 400, color: '#FFFFFF', lineHeight: 1.25, marginBlockEnd: 52 }}>
+            How we work
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
             {[
-              { title: 'No Transactional Bias', body: 'We earn no commission from transactions. Our economic model is aligned with client outcomes, not deal completion.' },
-              { title: 'Primary Research', body: 'We generate our own market data through direct engagement. We do not resell consultancy reports or rely on secondary sources as primary inputs.' },
-              { title: 'Cycle Experience', body: '18 years covering three distinct GCC real estate cycles. We have advised through formation, correction, expansion, and post-liquidity normalisation.' },
+              { title: 'Diagnose First', body: 'We do not recommend solutions before understanding the specific constraint. Every engagement starts with the diagnostic. Implementation follows only where the gap has been identified and scoped.' },
+              { title: 'Specific Recommendations', body: 'The output of a diagnostic is a prioritised action list — specific to the gaps we find, not a general framework. Each recommendation is actionable without further analysis.' },
+              { title: 'Process Over Technology', body: 'Most conversion problems in GCC real estate are process problems, not technology problems. We identify the process gap first, then recommend the tooling — not the reverse.' },
             ].map((item, i) => (
               <div key={item.title} style={{ paddingBlock: 40, paddingInline: i > 0 ? 40 : 0, borderInlineStart: i > 0 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
                 <div style={{ fontSize: 14, fontWeight: 500, color: '#FFFFFF', marginBlockEnd: 12 }}>{item.title}</div>
@@ -137,7 +134,7 @@ export default function AdvisoryServicesPage() {
 
           <div style={{ marginBlockStart: 52 }}>
             <Button href="/contact" variant="primary" theme="dark" size="md" icon={<ArrowUpRight size={14} aria-hidden="true" />}>
-              Discuss Your Mandate
+              Request a Diagnostic
             </Button>
           </div>
         </Container>

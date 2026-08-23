@@ -7,18 +7,18 @@
 
 export const siteConfig = {
   /** Firm display name — shown in nav, footer, page headers, metadata */
-  name: 'MERIDIAN Capital Advisory',
+  name: 'North Star Advisory',
 
   /** Short tagline shown beneath logo */
-  tagline: 'Capital Advisory',
+  tagline: 'Real-Estate Growth Systems',
 
   /** Used in footer description and metadata fallback */
   description:
-    'Institutional real estate advisory for family offices, sovereign-linked capital, and institutional allocators across the GCC and MENA markets.',
+    'North Star Advisory helps GCC real-estate operators identify and repair the systems between marketing demand, enquiry capture, lead qualification, sales routing, CRM, and appointment conversion.',
 
   /** Default browser title (used when no page-level title is set) */
   defaultTitle:
-    'MERIDIAN Capital Advisory | GCC Institutional Real Estate',
+    'North Star Advisory | GCC Real-Estate Lead-to-Appointment Systems',
 
   /** Production URL — set via NEXT_PUBLIC_SITE_URL env var */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://realestate.northstaradvisory.pro',
@@ -31,64 +31,15 @@ export const siteConfig = {
   fromEmail:
     process.env.CONTACT_EMAIL_FROM ?? 'noreply@northstaradvisory.pro',
 
-  /** Year the firm was established */
-  foundedYear: 2006,
-
-  /** Years of advisory experience */
-  yearsExperience: 18,
-
-  /** Office locations */
-  offices: [
-    {
-      city: 'Dubai',
-      address: 'Gate Village 10, DIFC',
-      label: 'DIFC, Dubai — Gate Village 10',
-    },
-    {
-      city: 'Abu Dhabi',
-      address: 'Al Maryah Island, ADGM',
-      label: 'ADGM, Abu Dhabi — Al Maryah Island',
-    },
-  ],
-
-  /** Regulatory bodies */
-  regulators: ['DFSA', 'FSRA'] as const,
-
-  /** Regulatory entities */
-  entities: [
-    {
-      label: 'Dubai Entity',
-      name: 'MERIDIAN Capital Advisory (DIFC) Limited',
-      sub: 'DFSA Regulated · Category 4 Licence',
-    },
-    {
-      label: 'Abu Dhabi Entity',
-      name: 'MERIDIAN Capital Advisory (ADGM) Limited',
-      sub: 'FSRA Regulated · Financial Services Permission',
-    },
-  ],
-
   /** Geographic markets under coverage */
   markets: [
-    'Dubai',
-    'Abu Dhabi',
-    'Riyadh',
-    'Jeddah',
-    'Kuwait City',
-    'Doha',
-    'Muscat',
-    'Cairo',
+    'Saudi Arabia',
+    'UAE',
+    'Qatar',
+    'Kuwait',
+    'Bahrain',
+    'Oman',
   ],
-
-  /** Key stats used in Hero and Track Record sections */
-  stats: {
-    yearsExperience: '18',
-    totalMandates: 'AED 14.2B+',
-    marketsCount: '9',
-    transactionsAdvised: '340+',
-    institutionalClients: '23',
-    capitalDeployedSupport: 'AED 6.8B+',
-  },
 
   /** Social / SEO meta */
   social: {

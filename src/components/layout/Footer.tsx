@@ -72,21 +72,13 @@ export function Footer() {
             <div
               style={{
                 marginBlockStart: 28,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 8,
+                fontSize: 12,
+                color: 'rgba(255, 255, 255, 0.45)',
+                lineHeight: 1.7,
+                maxWidth: 280,
               }}
             >
-              {siteConfig.offices.map((office) => (
-                <div key={office.city}>
-                  <div style={{ fontSize: 13, color: 'rgba(255, 255, 255, 0.7)', marginBlockEnd: 4 }}>
-                    {office.address}
-                  </div>
-                  <span style={{ fontSize: 12, color: 'rgba(255, 255, 255, 0.55)' }}>
-                    {office.city}
-                  </span>
-                </div>
-              ))}
+              GCC real-estate lead-to-appointment systems for developers and operators across Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman.
             </div>
           </div>
 
@@ -233,8 +225,7 @@ export function Footer() {
                 letterSpacing: '0.04em',
               }}
             >
-              © {currentYear} {siteConfig.name}. All rights reserved. Regulated
-              by {siteConfig.regulators.join(' & ')}.
+              © {currentYear} {siteConfig.name}. All rights reserved.
             </span>
 
             <nav aria-label="Legal pages">
@@ -245,22 +236,20 @@ export function Footer() {
                   gap: 32,
                 }}
               >
-                {['Legal Notice', 'Privacy Policy', 'Regulatory Disclosure'].map(
-                  (item) => (
-                    <li key={item}>
-                      <span
-                        style={{
-                          fontSize: 11,
-                          color: 'rgba(255, 255, 255, 0.55)',
-                          letterSpacing: '0.04em',
-                          cursor: 'default',
-                        }}
-                      >
-                        {item}
-                      </span>
-                    </li>
-                  )
-                )}
+                <li>
+                  <Link
+                    href="/privacy"
+                    style={{
+                      fontSize: 11,
+                      color: 'rgba(255, 255, 255, 0.55)',
+                      letterSpacing: '0.04em',
+                      textDecoration: 'none',
+                    }}
+                    className="footer-link"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -268,19 +257,14 @@ export function Footer() {
           <p
             style={{
               fontSize: 11,
-              color: 'rgba(255, 255, 255, 0.55)',
+              color: 'rgba(255, 255, 255, 0.4)',
               marginBlockStart: 16,
               lineHeight: 1.7,
               maxWidth: 800,
             }}
           >
-            {siteConfig.name} operates through regulated entities in both Dubai
-            International Financial Centre and Abu Dhabi Global Market. Regulated
-            by the Dubai Financial Services Authority (DFSA) and the Financial
-            Services Regulatory Authority (FSRA) of Abu Dhabi Global Market. This
-            website is for informational purposes only and does not constitute an
-            offer or solicitation for investment advisory services. Past
-            performance is not indicative of future results.
+            {siteConfig.name} provides real-estate operating systems advisory for GCC developers and operators.
+            This website is for informational purposes only. We do not provide property brokerage, regulated investment advisory, capital placement, or investment product solicitation services.
           </p>
         </div>
       </div>

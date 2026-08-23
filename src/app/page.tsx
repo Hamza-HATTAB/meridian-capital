@@ -6,28 +6,22 @@ import { Button } from '@/components/primitives/Button';
 import { MarketIntelCard } from '@/components/patterns/MarketIntelCard';
 import { InvestmentThemeCard } from '@/components/patterns/InvestmentThemeCard';
 import { ServiceItem } from '@/components/patterns/ServiceItem';
-import { SectorBar } from '@/components/patterns/SectorBar';
-import { TransactionRow } from '@/components/patterns/TransactionRow';
 import { ProcessStepItem } from '@/components/patterns/ProcessStepItem';
 import { InsightCard } from '@/components/patterns/InsightCard';
 import { ContactForm } from '@/components/patterns/ContactForm';
 import { siteConfig } from '@/config/site';
-import { marketIntelligence, researchProcess, sectorCoverage } from '@/content/track-record';
+import { marketIntelligence, researchProcess } from '@/content/track-record';
 import { investmentThemes } from '@/content/themes';
 import { advisoryServices } from '@/content/services';
-import { transactions } from '@/content/transactions';
 import { insights } from '@/content/insights';
 import { ArrowUpRight, ChevronRight } from 'lucide-react';
 
 // ── Metadata ──────────────────────────────────────────────────────────────
 export const metadata: Metadata = createMetadata({
-  title: 'GCC Institutional Real Estate Advisory',
+  title: 'GCC Real-Estate Lead-to-Appointment Systems',
   description:
-    'Independent real estate advisory for family offices, sovereign-linked capital, and institutional allocators across the GCC and MENA markets. 18 years. AED 14.2B+ in advisory mandates.',
+    'North Star Advisory helps GCC real-estate operators identify and repair the systems between marketing demand, enquiry capture, lead qualification, sales routing, CRM, and appointment conversion.',
 });
-
-// ── Featured transactions (first 6) ──────────────────────────────────────
-const featuredTransactions = transactions.filter((t) => t.featured).slice(0, 6);
 
 // ── Featured insights ─────────────────────────────────────────────────────
 const featuredInsight = insights.find((i) => i.featured);
@@ -40,17 +34,12 @@ export default function HomePage() {
     '@type': 'Organization',
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
+    description: siteConfig.description,
     contactPoint: {
       '@type': 'ContactPoint',
       email: siteConfig.contactEmail,
       contactType: 'customer service',
     },
-    address: siteConfig.offices.map((office) => ({
-      '@type': 'PostalAddress',
-      addressLocality: office.city,
-      streetAddress: office.address,
-    })),
   };
 
   return (
@@ -59,11 +48,12 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 1 — HERO (INVESTMENT COMMITTEE MEMORANDUM)
+          SECTION 1 — HERO
           ════════════════════════════════════════════════════════════════ */}
       <section
-        aria-label="Investment Committee Memorandum"
+        aria-label="North Star Advisory — Real-Estate Growth Systems"
         style={{
           background: '#FFFFFF',
           color: '#000000',
@@ -82,7 +72,7 @@ export default function HomePage() {
               padding: 'clamp(40px, 6vw, 80px)',
             }}
           >
-            {/* Memo Header */}
+            {/* Firm Header */}
             <div
               style={{
                 display: 'flex',
@@ -99,12 +89,16 @@ export default function HomePage() {
               }}
             >
               <div>
-                <strong style={{ fontSize: 13, display: 'block', marginBlockEnd: 4, color: '#000000' }}>STRICTLY CONFIDENTIAL</strong>
-                INVESTMENT COMMITTEE BRIEFING
+                <strong style={{ fontSize: 13, display: 'block', marginBlockEnd: 4, color: '#000000' }}>
+                  NORTH STAR ADVISORY
+                </strong>
+                REAL-ESTATE GROWTH SYSTEMS
               </div>
               <div style={{ textAlign: 'right' }}>
-                <strong style={{ fontSize: 13, display: 'block', marginBlockEnd: 4, color: '#000000' }}>REF: MERIDIAN-{new Date().getFullYear()}</strong>
-                {siteConfig.name}
+                <strong style={{ fontSize: 13, display: 'block', marginBlockEnd: 4, color: '#000000' }}>
+                  GCC REAL ESTATE
+                </strong>
+                northstaradvisory.pro
               </div>
             </div>
 
@@ -112,119 +106,90 @@ export default function HomePage() {
             <h1
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(48px, 7vw, 92px)',
+                fontSize: 'clamp(40px, 6vw, 80px)',
                 fontWeight: 400,
                 color: '#000000',
                 lineHeight: 1.05,
-                marginBlockEnd: 'clamp(60px, 8vw, 100px)',
+                marginBlockEnd: 'clamp(40px, 6vw, 72px)',
                 letterSpacing: '-0.02em',
-                maxWidth: 800,
+                maxWidth: 760,
               }}
             >
-              We are paid for judgment, not transactions.
+              More qualified appointments.<br />
+              Fewer lost enquiries.
             </h1>
 
-            {/* CONFIDENTIAL PROOF ARTIFACT (The Visual Anchor) */}
+            {/* Problem Statement Block */}
             <div
               style={{
                 border: '1px solid #000000',
                 background: '#FAFAFA',
-                padding: 'clamp(32px, 5vw, 48px)',
+                padding: 'clamp(28px, 4vw, 44px)',
                 fontFamily: 'monospace',
                 color: '#000000',
-                marginBlockEnd: 'clamp(60px, 8vw, 100px)',
+                marginBlockEnd: 'clamp(48px, 7vw, 88px)',
               }}
             >
-              <div 
-                style={{ 
-                  fontWeight: 'bold', 
-                  fontSize: 13,
-                  borderBottom: '1px solid rgba(0,0,0,0.15)', 
-                  paddingBottom: 16, 
-                  marginBottom: 32,
-                  letterSpacing: '0.05em'
+              <div
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: 12,
+                  borderBottom: '1px solid rgba(0,0,0,0.15)',
+                  paddingBottom: 14,
+                  marginBottom: 28,
+                  letterSpacing: '0.05em',
                 }}
               >
-                [ EXCERPT: IC BRIEFING #412 // DIFC ASSET REVIEW ]
+                [ THE TYPICAL GCC REAL-ESTATE OPERATOR PROBLEM ]
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-16" style={{ fontSize: 14 }}>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-7 gap-x-14" style={{ fontSize: 13 }}>
                 <div>
-                  <div style={{ color: 'rgba(0,0,0,0.75)', marginBottom: 6, fontSize: 12 }}>MARKET VIEW:</div>
-                  <div style={{ fontWeight: 'bold' }}>PROCEED (YIELD 5.8%)</div>
+                  <div style={{ color: 'rgba(0,0,0,0.65)', marginBottom: 5, fontSize: 11 }}>MARKETING SPEND:</div>
+                  <div style={{ fontWeight: 'bold' }}>INCREASING YEAR-ON-YEAR</div>
                 </div>
                 <div>
-                  <div style={{ color: 'rgba(0,0,0,0.75)', marginBottom: 6, fontSize: 12 }}>MERIDIAN RECOMMENDATION:</div>
-                  <div style={{ fontWeight: 'bold', color: '#D90000', display: 'inline-block', borderBottom: '2px solid #D90000' }}>WITHDRAW / DECLINE</div>
+                  <div style={{ color: 'rgba(0,0,0,0.65)', marginBottom: 5, fontSize: 11 }}>APPOINTMENT CONVERSION:</div>
+                  <div style={{ fontWeight: 'bold', color: '#D90000', display: 'inline-block', borderBottom: '2px solid #D90000' }}>FLAT OR DECLINING</div>
                 </div>
                 <div className="md:col-span-2">
-                  <div style={{ color: 'rgba(0,0,0,0.75)', marginBottom: 6, fontSize: 12 }}>REASON:</div>
-                  <div style={{ fontWeight: 'bold', lineHeight: 1.5 }}>UNPRICED COVENANT RISK ON ANCHOR TENANT IDENTIFIED DURING INDEPENDENT DD.</div>
+                  <div style={{ color: 'rgba(0,0,0,0.65)', marginBottom: 5, fontSize: 11 }}>ROOT CAUSE:</div>
+                  <div style={{ fontWeight: 'bold', lineHeight: 1.5 }}>ENQUIRIES LOST BETWEEN CAPTURE, QUALIFICATION, ROUTING, CRM, AND FOLLOW-UP — NOT FROM INSUFFICIENT DEMAND.</div>
                 </div>
-                <div className="md:col-span-2 pt-6 border-t border-[rgba(0,0,0,0.15)]">
-                  <div style={{ color: 'rgba(0,0,0,0.75)', marginBottom: 6, fontSize: 12 }}>OUTCOME:</div>
-                  <div style={{ fontWeight: 'bold' }}>TENANT DEFAULTED 18 MONTHS LATER. <span style={{ background: 'rgba(0,0,0,0.08)', padding: '2px 8px' }}>AED 120M CAPITAL PRESERVED.</span></div>
+                <div className="md:col-span-2 pt-5 border-t border-[rgba(0,0,0,0.12)]">
+                  <div style={{ color: 'rgba(0,0,0,0.65)', marginBottom: 5, fontSize: 11 }}>WHAT THIS COSTS:</div>
+                  <div style={{ fontWeight: 'bold' }}>REVENUE ALREADY PAID FOR BY MARKETING BUT NEVER CONVERTED. THE FIX IS PROCESS — NOT MORE SPEND.</div>
                 </div>
               </div>
 
-              {/* Curiosity Loop */}
-              <div style={{ marginBlockStart: 48, paddingTop: 24, borderTop: '1px dashed rgba(0,0,0,0.15)', fontSize: 11, color: 'rgba(0,0,0,0.75)', lineHeight: 1.6 }}>
-                <div>Additional supporting analysis withheld.</div>
-                <div>Supporting schedules, underwriting assumptions, and committee correspondence omitted.</div>
+              <div style={{ marginBlockStart: 40, paddingTop: 20, borderTop: '1px dashed rgba(0,0,0,0.15)', fontSize: 11, color: 'rgba(0,0,0,0.65)', lineHeight: 1.6 }}>
+                <div>This is the problem the Lead-to-Appointment Diagnostic is designed to find and fix.</div>
               </div>
             </div>
 
-            {/* Consequence Block */}
+            {/* Supporting Statement */}
             <div
               style={{
                 display: 'flex',
-                gap: 24,
+                gap: 22,
                 marginBlockEnd: 48,
               }}
             >
               <div style={{ width: 3, background: '#000000', flexShrink: 0 }} />
               <p
                 style={{
-                  fontSize: 'clamp(17px, 2vw, 21px)',
-                  lineHeight: 1.6,
+                  fontSize: 'clamp(16px, 1.8vw, 20px)',
+                  lineHeight: 1.65,
                   color: '#000000',
                   maxWidth: 680,
                   fontWeight: 400,
                   fontFamily: 'var(--font-display)',
                 }}
               >
-                When advisory incentives are linked to transactions, independent judgment becomes difficult to preserve. Meridian was built on the belief that capital decisions should be defended by evidence rather than transaction volume.
+                {siteConfig.description}
               </p>
             </div>
 
-            {/* Institutional Evidence (Demoted Metrics) */}
-            <div
-              style={{
-                fontFamily: 'monospace',
-                fontSize: 11,
-                letterSpacing: '0.08em',
-                color: 'rgba(0,0,0,0.6)',
-                marginBlockEnd: 'clamp(40px, 6vw, 80px)',
-                paddingBlock: 24,
-                borderTop: '1px solid rgba(0,0,0,0.1)',
-                borderBottom: '1px solid rgba(0,0,0,0.1)',
-              }}
-            >
-              <span style={{ fontWeight: 'bold', color: '#000000', marginRight: 16 }}>[FIRM DATA]</span>
-              <span className="hidden sm:inline">18 YEARS <span style={{ marginInline: 12, opacity: 0.3 }}>|</span></span>
-              <span className="hidden sm:inline">AED 14.2B ADVISED <span style={{ marginInline: 12, opacity: 0.3 }}>|</span></span>
-              <span className="hidden sm:inline">23 INSTITUTIONAL CLIENTS <span style={{ marginInline: 12, opacity: 0.3 }}>|</span></span>
-              <span className="hidden sm:inline">3 MARKET CYCLES</span>
-              
-              {/* Mobile fallback for metrics */}
-              <div className="sm:hidden mt-4 flex flex-col gap-2">
-                <div>18 YEARS</div>
-                <div>AED 14.2B ADVISED</div>
-                <div>23 INSTITUTIONAL CLIENTS</div>
-                <div>3 MARKET CYCLES</div>
-              </div>
-            </div>
-            
             {/* Action Links */}
             <div
               style={{
@@ -237,30 +202,30 @@ export default function HomePage() {
                 letterSpacing: '0.08em',
               }}
             >
-              <a 
-                href="/contact" 
+              <a
+                href="/contact"
                 className="hover:text-black transition-colors"
-                style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: 8, 
-                  color: '#000000', 
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  color: '#000000',
                   fontWeight: 'bold',
                 }}
               >
-                [ INITIATE DIALOGUE ] <ArrowUpRight size={14} />
+                [ REQUEST A DIAGNOSTIC ] <ArrowUpRight size={14} />
               </a>
-              <a 
-                href="/about" 
+              <a
+                href="/advisory-services"
                 className="hover:text-black transition-colors"
-                style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: 8, 
-                  color: 'rgba(0,0,0,0.75)',
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  color: 'rgba(0,0,0,0.7)',
                 }}
               >
-                [ REVIEW METHODOLOGY ] <ChevronRight size={14} />
+                [ REVIEW THE METHOD ] <ChevronRight size={14} />
               </a>
             </div>
           </div>
@@ -268,46 +233,73 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 2 — WHY ARE YOU DIFFERENT (RESEARCH PROCESS)
+          SECTION 2 — WHO THIS IS FOR
           ════════════════════════════════════════════════════════════════ */}
       <section
-        aria-labelledby="process-heading"
+        aria-labelledby="audience-heading"
         style={{
-          background: 'var(--color-bg-warm)', // Shifted background to transition from white memo
+          background: 'var(--color-bg-warm)',
           paddingBlock: 'var(--space-20)',
-          borderTop: '1px solid rgba(0,0,0,0.1)'
+          borderTop: '1px solid rgba(0,0,0,0.1)',
         }}
       >
         <Container>
-          <div
-            className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24"
-          >
-            {/* Left */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
             <div style={{ paddingInlineStart: '1vw' }}>
-              <SectionLabel variant="light">The Discipline</SectionLabel>
+              <SectionLabel variant="light">Who This Is For</SectionLabel>
               <h2
-                id="process-heading"
+                id="audience-heading"
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(28px, 3vw, 42px)',
+                  fontSize: 'clamp(26px, 2.8vw, 40px)',
                   fontWeight: 400,
                   color: 'var(--color-text-primary)',
                   lineHeight: 1.2,
                   letterSpacing: '-0.01em',
+                  marginBlockEnd: 20,
                 }}
               >
-                How We Generate Conviction
+                GCC real-estate operators with high enquiry volume.
               </h2>
+              <p style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--color-text-secondary)' }}>
+                The diagnostic is relevant when you are spending on marketing, receiving enquiries, and cannot explain why conversion to appointment is lower than it should be.
+              </p>
             </div>
 
-            {/* Right — steps */}
-            <div>
-              {researchProcess.map((step, i) => (
-                <ProcessStepItem
-                  key={step.phase}
-                  step={step}
-                  isLast={i === researchProcess.length - 1}
-                />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-0" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+              {[
+                {
+                  label: 'Developers',
+                  desc: 'Master-planned communities, residential developments, multi-phase projects — any developer running active marketing campaigns and managing an inbound enquiry volume.',
+                },
+                {
+                  label: 'Multi-Project Operators',
+                  desc: 'Businesses managing simultaneous projects across markets or asset classes, where routing and CRM consistency becomes a structural challenge.',
+                },
+                {
+                  label: 'Hospitality-Linked Real Estate',
+                  desc: 'Branded residence operators and hospitality-integrated property businesses where the sales cycle is longer and the qualification criteria are specific.',
+                },
+                {
+                  label: 'Portfolio Businesses',
+                  desc: 'Real-estate portfolio businesses with multiple active products and sales teams, where enquiry attribution, routing, and conversion visibility are difficult to maintain.',
+                },
+              ].map((item, i) => (
+                <div
+                  key={item.label}
+                  style={{
+                    padding: '32px 28px',
+                    borderBottom: '1px solid rgba(0,0,0,0.08)',
+                    borderInlineStart: i % 2 !== 0 ? '1px solid rgba(0,0,0,0.08)' : 'none',
+                  }}
+                >
+                  <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--color-text-primary)', marginBlockEnd: 10 }}>
+                    {item.label}
+                  </div>
+                  <p style={{ fontSize: 13, lineHeight: 1.75, color: 'var(--color-text-secondary)' }}>
+                    {item.desc}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
@@ -315,10 +307,10 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 3 — WHY SHOULD I BELIEVE YOU (TRACK RECORD - CYCLES)
+          SECTION 3 — WHERE REVENUE LEAKS (5 THEMES)
           ════════════════════════════════════════════════════════════════ */}
       <section
-        aria-labelledby="track-record-heading"
+        aria-labelledby="revenue-leaks-heading"
         style={{
           background: 'var(--color-bg-dark-raised)',
           paddingBlock: 'var(--space-20)',
@@ -334,236 +326,247 @@ export default function HomePage() {
             }}
           >
             <div style={{ paddingInlineStart: '1vw' }}>
-              <SectionLabel variant="dark">Institutional Track Record</SectionLabel>
+              <SectionLabel variant="dark">The Five Leak Points</SectionLabel>
               <h2
-                id="track-record-heading"
+                id="revenue-leaks-heading"
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(32px, 4vw, 54px)', // Tier 1 scale
+                  fontSize: 'clamp(28px, 3.5vw, 48px)',
                   fontWeight: 400,
                   color: '#FFFFFF',
-                  lineHeight: 1.1,
+                  lineHeight: 1.15,
                   letterSpacing: '-0.02em',
                 }}
               >
-                18 Years Across Three Market Cycles
+                Where qualified enquiries are lost
               </h2>
             </div>
             <Button
-              href="/track-record"
+              href="/advisory-services"
               variant="secondary"
               theme="dark"
               size="sm"
               icon={<ChevronRight size={13} aria-hidden="true" />}
             >
-              Full Record
+              The Diagnostic Method
             </Button>
           </div>
 
-          {/* Sector coverage bars */}
           <div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-7"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px"
             style={{
-              paddingBlock: 40,
-              borderTop: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(255,255,255,0.08)',
+              border: '1px solid rgba(255,255,255,0.08)',
             }}
           >
-            {sectorCoverage.map((sector) => (
-              <SectorBar key={sector.sector} sector={sector} variant="dark" />
+            {investmentThemes.map((theme) => (
+              <InvestmentThemeCard key={theme.id} theme={theme} />
             ))}
           </div>
         </Container>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 4 — SHOW ME EVIDENCE (TRANSACTIONS)
+          SECTION 4 — THE DIAGNOSTIC PROCESS
           ════════════════════════════════════════════════════════════════ */}
       <section
-        aria-labelledby="transactions-heading"
-        style={{
-          background: 'var(--color-bg-white)', // Contrast against previous dark section
-          paddingBlock: 'var(--space-20)',
-        }}
-      >
-        <Container>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              marginBlockEnd: 40,
-            }}
-          >
-            <div style={{ paddingInlineStart: '1vw' }}>
-              <SectionLabel variant="light">Advisory Ledger</SectionLabel>
-              <h2
-                id="transactions-heading"
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(24px, 2.5vw, 38px)', // Tier 2 scale
-                  fontWeight: 400,
-                  color: 'var(--color-text-primary)',
-                  lineHeight: 1.25,
-                  letterSpacing: '-0.01em',
-                }}
-              >
-                Selected Mandates
-              </h2>
-            </div>
-            <Button
-              href="/transactions"
-              variant="ghost"
-              theme="light"
-              size="sm"
-              icon={<ChevronRight size={13} aria-hidden="true" />}
-            >
-              All Transactions
-            </Button>
-          </div>
-
-          <div className="overflow-x-auto pb-4" tabIndex={0} aria-label="Selected transactions table">
-            <div className="min-w-[700px]">
-              {/* Table header */}
-              <div
-                className="grid grid-cols-[2fr_1fr_1fr_1fr_1fr]"
-            style={{
-              paddingBlock: '10px 16px',
-              borderBottom: '1px solid rgba(0,0,0,0.15)',
-            }}
-          >
-            {['Transaction', 'Type', 'Market', 'Strategy', 'Role'].map(
-              (col) => (
-                <span
-                  key={col}
-                  style={{
-                    fontSize: 10,
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: 'var(--color-text-muted)',
-                  }}
-                >
-                  {col}
-                </span>
-              )
-            )}
-              </div>
-          {/* Transaction rows */}
-          <div role="list" aria-label="Selected transactions">
-            {featuredTransactions.map((tx) => (
-              <div key={tx.id} role="listitem">
-                <TransactionRow transaction={tx} />
-              </div>
-            ))}
-          </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          SECTION 5 — INTERNAL MEMOS (INSIGHTS)
-          ════════════════════════════════════════════════════════════════ */}
-      <section
-        aria-labelledby="insights-heading"
+        aria-labelledby="process-heading"
         style={{
           background: 'var(--color-bg-warm)',
           paddingBlock: 'var(--space-20)',
         }}
       >
         <Container>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              marginBlockEnd: 48,
-            }}
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
             <div style={{ paddingInlineStart: '1vw' }}>
-              <SectionLabel variant="light">Committee Briefings</SectionLabel>
+              <SectionLabel variant="light">The Diagnostic Method</SectionLabel>
               <h2
-                id="insights-heading"
+                id="process-heading"
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(32px, 4vw, 54px)', // Tier 1 scale
+                  fontSize: 'clamp(26px, 2.8vw, 40px)',
                   fontWeight: 400,
                   color: 'var(--color-text-primary)',
-                  lineHeight: 1.1,
-                  letterSpacing: '-0.02em',
+                  lineHeight: 1.2,
+                  letterSpacing: '-0.01em',
                 }}
               >
-                Internal Memos & Market Views
+                How the Lead-to-Appointment Diagnostic works
               </h2>
             </div>
-            <Button
-              href="/insights"
-              variant="ghost"
-              theme="light"
-              size="sm"
-              icon={<ChevronRight size={13} aria-hidden="true" />}
-            >
-              Access Archive
-            </Button>
-          </div>
 
-          {/* Featured + secondary grid */}
-          {featuredInsight && (
-            <div
-              className="grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr] gap-12 lg:gap-0"
-            >
-              {/* Featured */}
-              <div
-                style={{
-                  paddingInlineEnd: 48,
-                  borderInlineEnd: '1px solid rgba(0,0,0,0.1)',
-                }}
-              >
-                <InsightCard insight={featuredInsight} variant="featured" />
-              </div>
-
-              {/* Secondary pair */}
-              <div
-                style={{
-                  paddingInline: 40,
-                  borderInlineEnd: '1px solid rgba(0,0,0,0.1)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 36,
-                }}
-              >
-                {secondaryInsights.slice(0, 2).map((insight) => (
-                  <InsightCard
-                    key={insight.id}
-                    insight={insight}
-                    variant="secondary"
-                  />
-                ))}
-              </div>
-
-              {/* Tertiary pair */}
-              <div
-                style={{
-                  paddingInlineStart: 40,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 36,
-                }}
-              >
-                {secondaryInsights.slice(2, 4).map((insight) => (
-                  <InsightCard
-                    key={insight.id}
-                    insight={insight}
-                    variant="tertiary"
-                  />
-                ))}
-              </div>
+            <div>
+              {researchProcess.map((step, i) => (
+                <ProcessStepItem
+                  key={step.phase}
+                  step={step}
+                  isLast={i === researchProcess.length - 1}
+                />
+              ))}
             </div>
-          )}
+          </div>
         </Container>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 6 — CURRENT VIEWS (MARKET INTEL)
+          SECTION 5 — WHAT WE DO NOT DO
+          ════════════════════════════════════════════════════════════════ */}
+      <section
+        aria-labelledby="scope-heading"
+        style={{
+          background: 'var(--color-bg-white)',
+          paddingBlock: 'var(--space-20)',
+        }}
+      >
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24 items-start">
+            <div style={{ paddingInlineStart: '1vw' }}>
+              <SectionLabel variant="light">Scope</SectionLabel>
+              <h2
+                id="scope-heading"
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(22px, 2.5vw, 34px)',
+                  fontWeight: 400,
+                  color: 'var(--color-text-primary)',
+                  lineHeight: 1.3,
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                What we do — and what we do not do
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div>
+                <div
+                  style={{
+                    fontSize: 10,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-text-muted)',
+                    marginBlockEnd: 16,
+                    fontWeight: 500,
+                  }}
+                >
+                  What the diagnostic covers
+                </div>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  {[
+                    'Enquiry capture audit across all channels',
+                    'Qualification and routing process review',
+                    'CRM configuration and pipeline assessment',
+                    'Response time and follow-up analysis',
+                    'Conversion metric definition and reporting design',
+                    'Prioritised action plan with specific recommendations',
+                  ].map((item) => (
+                    <li key={item} style={{ display: 'flex', gap: 10, fontSize: 13, lineHeight: 1.6, color: 'var(--color-text-secondary)' }}>
+                      <span style={{ color: 'var(--color-accent-mid)', marginBlockStart: 2, flexShrink: 0 }} aria-hidden="true">—</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <div
+                  style={{
+                    fontSize: 10,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-text-muted)',
+                    marginBlockEnd: 16,
+                    fontWeight: 500,
+                  }}
+                >
+                  What we do not do
+                </div>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  {[
+                    'Property brokerage or sales agency',
+                    'Investment product solicitation or capital placement',
+                    'Guaranteed conversion outcomes',
+                    'Unsupported claims about past results',
+                    'Cookie-cutter templates applied without diagnosis',
+                    'Engagements where the bottleneck has not been identified first',
+                  ].map((item) => (
+                    <li key={item} style={{ display: 'flex', gap: 10, fontSize: 13, lineHeight: 1.6, color: 'var(--color-text-secondary)' }}>
+                      <span style={{ color: '#D90000', marginBlockStart: 2, flexShrink: 0 }} aria-hidden="true">✕</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SECTION 6 — ADVISORY SERVICES OVERVIEW
+          ════════════════════════════════════════════════════════════════ */}
+      <section
+        aria-labelledby="services-heading"
+        style={{
+          background: 'var(--color-bg-warm)',
+          paddingBlock: 'var(--space-20)',
+        }}
+      >
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24 items-start">
+            <div style={{ paddingInlineStart: '1vw' }}>
+              <SectionLabel variant="light">Engagements</SectionLabel>
+              <h2
+                id="services-heading"
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(22px, 2.5vw, 34px)',
+                  fontWeight: 400,
+                  color: 'var(--color-text-primary)',
+                  lineHeight: 1.3,
+                  marginBlockEnd: 24,
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                Structured engagements
+              </h2>
+              <p
+                style={{
+                  fontSize: 14,
+                  lineHeight: 1.7,
+                  color: 'var(--color-text-secondary)',
+                  marginBlockEnd: 32,
+                  maxWidth: '90%',
+                }}
+              >
+                Each engagement is designed around a specific, measurable problem — not a generic consulting framework.
+              </p>
+              <Button
+                href="/advisory-services"
+                variant="primary"
+                theme="light"
+                size="md"
+                icon={<ArrowUpRight size={14} aria-hidden="true" />}
+              >
+                View All Engagements
+              </Button>
+            </div>
+
+            <div>
+              {advisoryServices.slice(0, 3).map((service, i) => (
+                <ServiceItem
+                  key={service.id}
+                  service={service}
+                  isLast={i === 2}
+                />
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SECTION 7 — MARKET CONTEXT
           ════════════════════════════════════════════════════════════════ */}
       <section
         aria-labelledby="market-intel-heading"
@@ -582,12 +585,12 @@ export default function HomePage() {
             }}
           >
             <div style={{ paddingInlineStart: '1vw' }}>
-              <SectionLabel variant="light">Market Intelligence</SectionLabel>
+              <SectionLabel variant="light">Market Perspective</SectionLabel>
               <h2
                 id="market-intel-heading"
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(20px, 2vw, 28px)', // Tier 2 scale
+                  fontSize: 'clamp(20px, 2vw, 28px)',
                   fontWeight: 400,
                   color: 'var(--color-text-primary)',
                   lineHeight: 1.3,
@@ -595,17 +598,17 @@ export default function HomePage() {
                   letterSpacing: '-0.01em',
                 }}
               >
-                Current Views on GCC Markets
+                GCC real-estate operator context
               </h2>
             </div>
             <Button
-              href="/investment-intelligence"
+              href="/insights"
               variant="ghost"
               theme="light"
               size="sm"
               icon={<ChevronRight size={13} aria-hidden="true" />}
             >
-              All Research
+              All Analysis
             </Button>
           </div>
 
@@ -624,13 +627,13 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 7 — AREAS OF CONVICTION (THEMES)
+          SECTION 8 — INSIGHTS
           ════════════════════════════════════════════════════════════════ */}
       <section
-        aria-labelledby="themes-heading"
+        aria-labelledby="insights-heading"
         style={{
           background: 'var(--color-bg-warm)',
-          paddingBlockEnd: 'var(--space-20)',
+          paddingBlock: 'var(--space-20)',
         }}
       >
         <Container>
@@ -640,119 +643,79 @@ export default function HomePage() {
               justifyContent: 'space-between',
               alignItems: 'flex-end',
               marginBlockEnd: 48,
-              paddingBlockStart: 'var(--space-20)',
             }}
           >
             <div style={{ paddingInlineStart: '1vw' }}>
-              <SectionLabel variant="light">Investment Themes</SectionLabel>
+              <SectionLabel variant="light">Analysis</SectionLabel>
               <h2
-                id="themes-heading"
+                id="insights-heading"
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(20px, 2vw, 28px)', // Tier 2 scale
+                  fontSize: 'clamp(28px, 3.5vw, 48px)',
                   fontWeight: 400,
                   color: 'var(--color-text-primary)',
-                  lineHeight: 1.3,
-                  letterSpacing: '-0.01em',
+                  lineHeight: 1.15,
+                  letterSpacing: '-0.02em',
                 }}
               >
-                Areas of Active Conviction
+                Operator perspectives
               </h2>
             </div>
             <Button
-              href="/investment-intelligence"
+              href="/insights"
               variant="ghost"
               theme="light"
               size="sm"
               icon={<ChevronRight size={13} aria-hidden="true" />}
             >
-              Full Analysis
+              All Analysis
             </Button>
           </div>
 
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px"
-            style={{
-              background: '#FFFFFF',
-              border: '1px solid rgba(0,0,0,0.1)',
-            }}
-          >
-            {investmentThemes.map((theme) => (
-              <InvestmentThemeCard key={theme.id} theme={theme} />
-            ))}
-          </div>
+          {featuredInsight && (
+            <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr] gap-12 lg:gap-0">
+              <div
+                style={{
+                  paddingInlineEnd: 48,
+                  borderInlineEnd: '1px solid rgba(0,0,0,0.1)',
+                }}
+              >
+                <InsightCard insight={featuredInsight} variant="featured" />
+              </div>
+
+              <div
+                style={{
+                  paddingInline: 40,
+                  borderInlineEnd: '1px solid rgba(0,0,0,0.1)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 36,
+                }}
+              >
+                {secondaryInsights.slice(0, 2).map((insight) => (
+                  <InsightCard key={insight.id} insight={insight} variant="secondary" />
+                ))}
+              </div>
+
+              <div
+                style={{
+                  paddingInlineStart: 40,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 36,
+                }}
+              >
+                {secondaryInsights.slice(2, 4).map((insight) => (
+                  <InsightCard key={insight.id} insight={insight} variant="tertiary" />
+                ))}
+              </div>
+            </div>
+          )}
         </Container>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 8 — ADVISORY SERVICES
-          ════════════════════════════════════════════════════════════════ */}
-      <section
-        aria-labelledby="services-heading"
-        style={{
-          background: 'var(--color-bg-white)',
-          paddingBlock: 'var(--space-20)',
-        }}
-      >
-        <Container>
-          <div
-            className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24 items-start"
-          >
-            {/* Left column */}
-            <div style={{ paddingInlineStart: '1vw' }}>
-              <SectionLabel variant="light">Advisory Disciplines</SectionLabel>
-              <h2
-                id="services-heading"
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(20px, 2vw, 28px)', // Tier 2 scale
-                  fontWeight: 400,
-                  color: 'var(--color-text-primary)',
-                  lineHeight: 1.3,
-                  marginBlockEnd: 24,
-                  letterSpacing: '-0.01em',
-                }}
-              >
-                Structured Engagements
-              </h2>
-              <p
-                style={{
-                  fontSize: 14,
-                  lineHeight: 1.7,
-                  color: 'var(--color-text-secondary)',
-                  marginBlockEnd: 32,
-                  maxWidth: '90%',
-                }}
-              >
-                Our services provide institutional capital with the rigorous, independent analysis required to make defensible real estate allocation decisions.
-              </p>
-              <Button
-                href="/advisory-services"
-                variant="primary"
-                theme="light"
-                size="md"
-                icon={<ArrowUpRight size={14} aria-hidden="true" />}
-              >
-                View Scope of Services
-              </Button>
-            </div>
-
-            {/* Right column — service list */}
-            <div>
-              {advisoryServices.map((service, i) => (
-                <ServiceItem
-                  key={service.id}
-                  service={service}
-                  isLast={i === advisoryServices.length - 1}
-                />
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          SECTION 9 — INSTITUTIONAL INQUIRY (DARK)
+          SECTION 9 — REQUEST A DIAGNOSTIC (DARK CTA)
           ════════════════════════════════════════════════════════════════ */}
       <section
         aria-labelledby="cta-heading"
@@ -763,14 +726,13 @@ export default function HomePage() {
       >
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-            {/* Left */}
             <div style={{ paddingInlineStart: '1vw' }}>
-              <SectionLabel variant="dark">Strategic Dialogue</SectionLabel>
+              <SectionLabel variant="dark">Start Here</SectionLabel>
               <h2
                 id="cta-heading"
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(32px, 3.5vw, 48px)', // Tier 1 scale
+                  fontSize: 'clamp(30px, 3.5vw, 46px)',
                   fontWeight: 400,
                   color: '#FFFFFF',
                   lineHeight: 1.1,
@@ -778,44 +740,31 @@ export default function HomePage() {
                   letterSpacing: '-0.02em',
                 }}
               >
-                Request a Discussion
+                Request a Lead-to-Appointment Diagnostic
               </h2>
               <p
                 style={{
                   fontSize: 15,
-                  lineHeight: 1.7,
+                  lineHeight: 1.75,
                   color: 'rgba(255,255,255,0.55)',
-                  marginBlockEnd: 40,
+                  marginBlockEnd: 32,
                   maxWidth: '90%',
                 }}
               >
-                Meridian accepts a limited number of advisory mandates per quarter. To discuss a potential engagement, verify a market thesis, or request our latest internal views, please initiate a dialogue below.
+                Tell us about your operation, your current enquiry channels, and where you believe conversion is failing. We will assess whether a diagnostic is relevant to your situation and respond within two business days.
               </p>
-
-              {/* Offices */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                {siteConfig.offices.map((office) => (
-                  <div key={office.city}>
-                    <div
-                      style={{
-                        fontSize: 10,
-                        letterSpacing: '0.12em',
-                        textTransform: 'uppercase',
-                        color: 'rgba(255,255,255,0.55)',
-                        marginBlockEnd: 4,
-                      }}
-                    >
-                      {office.city}
-                    </div>
-                    <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>
-                      {office.address}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p
+                style={{
+                  fontSize: 12,
+                  lineHeight: 1.7,
+                  color: 'rgba(255,255,255,0.4)',
+                  maxWidth: '85%',
+                }}
+              >
+                North Star Advisory works with GCC real-estate developers, operators, and multi-project businesses. We do not provide property brokerage, investment product advice, or capital placement services.
+              </p>
             </div>
 
-            {/* Right — form */}
             <div>
               <ContactForm />
             </div>
